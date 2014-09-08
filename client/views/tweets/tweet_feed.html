@@ -1,0 +1,19 @@
+<template name="tweetFeed">
+  <div class="feed">
+    <header>
+      <h2>Recent Activity</h2>
+      <div class="sub header">Hashtags Seleccionados {{tags}} </div>
+    </header>
+    {{#each tweets}}
+      <div class="event">
+        <div class="label"><img src="{{user.profile_image_url}}" alt=""></div>
+      </div>
+      <div class="content">
+        <div class="date">{{moments created_at}}</div>
+        <div class="summary">
+          {{this.text}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>

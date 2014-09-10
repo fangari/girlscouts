@@ -1,5 +1,6 @@
 TweetStream = new Meteor.Stream('tweets');
 
+TweetStream.emit('clientId', 'tweetFeed');
 TweetStream.on('tweet', function(tweet) {
   tweet.created_at = moment(tweet.created_at).toDate();
   console.log(tweet);

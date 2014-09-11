@@ -1,5 +1,5 @@
-var Twitter = Meteor.npmRequire("twitter");
-var TweetStream = new Meteor.Stream("tweets");
+var Twitter = Meteor.npmRequire('twitter');
+var TweetStream = new Meteor.Stream('tweets');
 var conf = JSON.parse(Assets.getText('twitter.json'));
 var twit = new Twitter({
   consumer_key: conf.consumer.key,

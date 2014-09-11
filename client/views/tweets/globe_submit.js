@@ -3,7 +3,6 @@ Template.globeSubmit.events({
     event.preventDefault();
     var message = {
       id_str: Random.id(),
-      created_at: moment().format(),
       name: $(event.target).find('[name=name]').val(),
       text: '#GLOBETOPIA: ' + $(event.target).find('[name=message]').val() + ' #GSC14',
       origin: 'globe',
@@ -11,10 +10,13 @@ Template.globeSubmit.events({
     };
 
     //Method call or endpoint message stream
-
-    $(event.target).find('[name=name]').val('');
-    $(event.target).find('[name=message]').val('');
-    console.log(message);
+    Meteor.call('submitMessage', message, function(error, id) {
+      if (error)
+        return alert(error.reason);
+      $(event.target).find('[name=name]').val('');
+      $(event.target).find('[name=message]').val('');
+      // Router.go('globeSubmit');
+    });
   }
 });
 

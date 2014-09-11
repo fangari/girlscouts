@@ -1,5 +1,16 @@
 Messages = new Meteor.Collection('messages');
 
+Messages.allow({
+  update: function() {return true;},
+  remove: function() {return true;}
+});
+
+Messages.deny({
+  update: function(userID, message, fieldNames) {
+    return (_.without(fieldNames, 'reviewed', 'viewCount').length > 0);
+  }
+});
+
 Meteor.methods({
   submitMessage: function(messageAttributes) {
 
@@ -12,7 +23,8 @@ Meteor.methods({
 
     var message = _.extend(_.pick(messageAttributes, 'id_str', 'name',
                            'text', 'origin', 'reviewed'), {
-                             created_at: new Date().getTime()
+                             created_at: new Date().getTime(),
+                             viewCount: 0
                            });
 
     var messageId = Messages.insert(message);
@@ -21,6 +33,4 @@ Meteor.methods({
   },
   accept: function(messageId) {
   },
-  reject: function(messageId) {
-  }
 });

@@ -1,0 +1,27 @@
+<template name="globeSubmit">
+  <header style="text-transform:uppercase">
+    tweet to the world! Literally. In 120 characters enter your tweet here and
+    see it on the convention globe as well as on twitter. #globetopia #gsc14
+  </header>
+
+  <form class="main" action="">
+    <div class="control-group">
+      <div class="control-label" for="name">Name</div>
+      <div class="controls">
+        <input type="text" name="name" placeholder="What is your name?">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="control-label" for="message">Message</div>
+      <div class="controls">
+        <textarea id="text" name="message" cols="50" rows="3"></textarea>
+        <span class="char-count-js"></span>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+</template>

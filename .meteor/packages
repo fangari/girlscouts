@@ -4,13 +4,12 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-insecure
 meteorhacks:npm
 arunoda:streams
 mrt:momentjs
-meteorhacks:zones
 iron:router
 mrt:iron-router-progress
 sacha:spin
 
 npm-container
+meteorhacks:zones

@@ -1,5 +1,5 @@
-var Twitter = Meteor.npmRequire("twitter");
-var TweetStream = new Meteor.Stream("tweets");
+var Twitter = Meteor.npmRequire('twitter');
+var TweetStream = new Meteor.Stream('tweets');
 var conf = JSON.parse(Assets.getText('twitter.json'));
 var twit = new Twitter({
   consumer_key: conf.consumer.key,
@@ -15,3 +15,18 @@ twit.stream('statuses/filter', {
       TweetStream.emit('tweet', data);
   });
 });
+
+var subscriptionClientsMap = {};
+TweetStream.on('clientId', function(clientId) {
+  var subscriptionId = this.subscriptionId;
+  subscriptionClientsMap[subscriptionId] = clientId;
+
+  this.onDisconnect = function() {
+    subscriptionClientsMap[subscriptionId] = undefined;
+  };
+});
+
+TweetStream.permissions.read(function(eventName) {
+  var isAllowed = subscriptionClientsMap[this.subscriptionId] === 'tweetFeed';
+  return isAllowed;
+}, false);

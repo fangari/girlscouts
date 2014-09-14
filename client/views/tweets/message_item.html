@@ -1,0 +1,16 @@
+<template name="messageItem">
+  <div class="message">
+    <div class="date">{{moments created_at}}</div>
+    <div class="summary">
+      {{text}}
+    </div>
+    <p>
+      Submitted by {{name}}, from <span
+        class="origin">{{origin}}</span> station.
+    </p>
+    <div class="actions">
+      <button class='accept' type="button">&#10004;</button>
+      <button class='reject' type="button">&cross;</button>
+    </div>
+</div>
+</template>

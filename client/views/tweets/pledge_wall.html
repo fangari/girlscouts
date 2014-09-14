@@ -1,0 +1,24 @@
+<template name="pledgeWall">
+  <div class="feed">
+    <header>
+      <h1>GSC14 Pledge Wall</h1>
+      <p>
+        Consectetur aliquam sed reprehenderit elit nemo. Maiores esse
+        perspiciatis voluptatibus libero itaque harum debitis fugit consectetur!
+        Illo voluptatibus ex voluptatem praesentium eligendi. Aperiam eos
+        commodi ex tempore assumenda, cumque nobis!
+      </p>
+    </header>
+    {{#each messages}}
+      {{> pledgeItem}}
+    {{/each}}
+
+    {{#if nextPath}}
+      <a class="load-more" href="{{nextPath}}">Load more</a>
+    {{else}}
+      {{#unless ready}}
+        {{> spinner}}
+      {{/unless}}
+    {{/if}}
+  </div>
+</template>

@@ -8,13 +8,13 @@ var twit = new Twitter({
   access_token_secret: conf.access_token.secret
 });
 
-twit.stream('statuses/filter', {
-    'track': conf.tags
-  }, function(stream) {
-    stream.on('data', function(data) {
-      TweetStream.emit('tweet', data);
-  });
-});
+// twit.stream('statuses/filter', {
+//     'track': conf.tags
+//   }, function(stream) {
+//     stream.on('data', function(data) {
+//       // TweetStream.emit('tweet', data);
+//   });
+// });
 
 var subscriptionClientsMap = {};
 TweetStream.on('clientId', function(clientId) {

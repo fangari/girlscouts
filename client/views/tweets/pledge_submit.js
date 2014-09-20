@@ -1,11 +1,12 @@
 Template.pledgeSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
+    var initials = $(event.target).find('[name=name]').val()[0] + $(event.target).find('[name=last_name]').val()[0];
     var message = {
-      id_str: Random.id(),
       name: $(event.target).find('[name=name]').val(),
-      text: "#TakeActionHome: " +
-        $(event.target).find('[name=message]').val() + ' #GSC14',
+      last_name: $(event.target).find('[name=last_name]').val(),
+      text: $(event.target).find('[name=message]').val() +
+        ' ' + initials + ' #TakeActionHome #GSC14',
       origin: 'pledge',
       reviewed: false
     };
@@ -15,8 +16,9 @@ Template.pledgeSubmit.events({
       if (error)
         return alert(error.reason);
       $(event.target).find('[name=name]').val('');
+      $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
-      // Router.go('pledgeSubmit');
+      // Router.go('wordcloudSubmit');
     });
   }
 });
@@ -25,12 +27,12 @@ Template.pledgeSubmit.rendered = function() {
   var area = this.find('textarea');
   var counterSpan = this.find('.char-count-js');
   function callback(counter) {
-    if (counter.all < 117) {
+    if (counter.all < 115) {
       counterSpan.style.color = 'green';
     } else {
       counterSpan.style.color = 'red';
     }
-    counterSpan.innerHTML = 116 - counter.all;
+    counterSpan.innerHTML = 114 - counter.all;
   }
     Countable.live(area, callback);
 };

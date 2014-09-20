@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "twitter": {
-      "version": "0.2.9",
+      "version": "0.2.12",
       "dependencies": {
         "oauth": {
           "version": "0.9.12"

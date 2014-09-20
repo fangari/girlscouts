@@ -8,5 +8,5 @@ Meteor.publish('globe-messages', function() {
 });
 
 Meteor.publish('stats', function() {
-  return Stats.find({}, {sort: {viewCount: -1, _id: -1}});
+  return Stats.find({}, {sort: {_id: -1}});
 });

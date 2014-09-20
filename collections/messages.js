@@ -21,7 +21,7 @@ Meteor.methods({
     if (messageAttributes.text.length > 140)
       throw new Meteor.Error(422, 'Message is too long, please revise');
 
-    var message = _.extend(_.pick(messageAttributes, 'id_str', 'name',
+    var message = _.extend(_.pick(messageAttributes, 'name', 'last_name',
                            'text', 'origin', 'reviewed'), {
                              created_at: new Date().getTime(),
                              viewCount: 0

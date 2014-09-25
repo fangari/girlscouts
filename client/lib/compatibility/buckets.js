@@ -2365,12 +2365,8 @@ var buckets = {};
         };
     };
 
-    // Make it a NodeJS module.
-    // if (typeof module !== 'undefined') {
-        // module.exports = buckets;
-    // }
     /**
-     * Expose Countable depending on the module system used across the
+     * Expose buckets depending on the module system used across the
      * application. (Node / CommonJS, AMD, global)
      */
 

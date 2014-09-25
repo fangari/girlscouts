@@ -10,3 +10,7 @@ Meteor.publish('globe-messages', function() {
 Meteor.publish('stats', function() {
   return Stats.find({}, {sort: {_id: -1}});
 });
+
+Meteor.publish('wordcloud', function() {
+  return WordCloud.find();
+});

@@ -1,4 +1,3 @@
-
 var messageDisplay = {
   text: '',
   dep: new Tracker.Dependency(),

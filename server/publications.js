@@ -14,3 +14,7 @@ Meteor.publish('stats', function() {
 Meteor.publish('wordcloud', function() {
   return WordCloud.find();
 });
+
+Meteor.publish('stories', function() {
+  return Stories.find();
+});

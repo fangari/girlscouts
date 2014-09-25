@@ -1,12 +1,14 @@
 Template.pledgeSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
-    var initials = $(event.target).find('[name=name]').val()[0] + $(event.target).find('[name=last_name]').val()[0];
+    var initials = $.parseHTML("&mdash;")[0].textContent +
+      $(event.target).find('[name=name]').val()[0] +
+      $(event.target).find('[name=last_name]').val()[0];
     var message = {
       name: $(event.target).find('[name=name]').val(),
       last_name: $(event.target).find('[name=last_name]').val(),
       text: $(event.target).find('[name=message]').val() +
-        ' ' + initials + ' #TakeActionHome #GSC14',
+        ' ' + initials + ' #GSC14',
       origin: 'pledge',
       reviewed: false
     };

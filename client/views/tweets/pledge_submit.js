@@ -11,6 +11,10 @@ Template.pledgeSubmit.events({
       reviewed: false
     };
 
+    var wordArray = _.map($("input:checked"), function(word) {
+      return word.value;
+    });
+
     //Method call or endpoint message stream
     Meteor.call('submitMessage', message, function(error, id) {
       if (error)
@@ -18,7 +22,12 @@ Template.pledgeSubmit.events({
       $(event.target).find('[name=name]').val('');
       $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
-      // Router.go('wordcloudSubmit');
+    });
+
+    Meteor.call('submitToWordCloud', wordArray, function(error, id) {
+      if (error)
+        return alert(error.reason);
+      $(event.target).find('[name=words]').prop("checked", false);
     });
   }
 });

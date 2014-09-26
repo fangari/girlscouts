@@ -20,7 +20,6 @@ Template.globeDisplay.message = function() {
 };
 
 Template.globeDisplay.rendered = function() {
-  var instance = this;
 
   var displayQueue = new buckets.PriorityQueue(function (msgA, msgB) {
     if(msgA.viewCount > msgB.viewCount)

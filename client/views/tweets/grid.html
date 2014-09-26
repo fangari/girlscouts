@@ -1,20 +1,12 @@
 <template name="grid">
   <section class="grid-wrap">
-    <ul id="grid" class="grid swipe-right">
+    <ul id="grid" class="grid swipe-rotate">
       <li class="title-box">
         <h2>GSC#14</h2>
       </li>
       {{#each stories}}
         {{> gridItem}}
       {{/each}}
-
-      <!-- {{#if nextPath}} -->
-      <!--   <a class="load-more" href="{{nextPath}}">Load more</a> -->
-      <!-- {{else}} -->
-      <!--   {{unless ready}} -->
-      <!--     {{> spinner}} -->
-      <!--   {{/unless}} -->
-      <!-- {{/if}} -->
     </ul>
   </section>
 </template>

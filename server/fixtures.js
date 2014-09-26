@@ -25,8 +25,8 @@ if (Stats.find().count() === 0) {
 }
 
 if(Stories.find().count() === 0) {
-  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.jpg", beforeCaption: "I was shy", afterCaption: "I speak at tech conferences"});
-  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.jpg", beforeCaption: "I was a concept", afterCaption: "I'm a racer"});
-  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.jpg", beforeCaption: "I was made of letters", afterCaption: "I'm made of carbon"});
-  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.jpg", beforeCaption: "I was a vector drawing", afterCaption: "I'm a full-colored png"});
+  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.png", beforeCaption: "I was shy", afterCaption: "I speak at tech conferences"});
+  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.png", beforeCaption: "I was a concept", afterCaption: "I'm a racer"});
+  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.png", beforeCaption: "I was made of letters", afterCaption: "I'm made of carbon"});
+  Stories.insert({thenPath: "/stories/before.png", nowPath: "/stories/after.png", beforeCaption: "I was a vector drawing", afterCaption: "I'm a full-colored png"});
 }

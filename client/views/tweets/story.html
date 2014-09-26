@@ -1,3 +1,18 @@
 <template name="story">
-  <div id="story-card"></div>
+  <div class="story-card">
+    {{#with story}}
+      <div class="faces">
+        <div class="face front">
+          <img src="{{ thenPath }}" alt="{{ beforeCaption }}">
+          <h5 class="caption">Then: {{ beforeCaption }}</h5>
+        </div>
+
+        <div class="face back">
+          <img src="{{ nowPath }}" alt="{{ afterCaption }}">
+          <h5 class="caption">Now: {{ afterCaption }}</h5>
+        </div>
+      </div>
+    {{/with}}
+  </div>
+  <div class="call-animation-js"></div>
 </template>

@@ -1,19 +1,22 @@
 <template name="unreviewedList">
+  <div>{{> loginButtons}}</div>
   <div class="feed">
     <header>
       <h2>Recent Activity</h2>
       <div class="sub header">Submitted Messages pending approval</div>
     </header>
-    {{#each messages}}
-      {{> messageItem}}
-    {{/each}}
+    {{#if currentUser}}
+      {{#each messages}}
+        {{> messageItem}}
+      {{/each}}
 
-    {{#if nextPath}}
-      <a class="load-more" href="{{nextPath}}">Load more</a>
-    {{else}}
-      {{#unless ready}}
-        {{> spinner}}
-      {{/unless}}
+      {{#if nextPath}}
+        <a class="load-more" href="{{nextPath}}">Load more</a>
+        {{else}}
+        {{#unless ready}}
+          {{> spinner}}
+        {{/unless}}
+      {{/if}}
     {{/if}}
   </div>
 </template>

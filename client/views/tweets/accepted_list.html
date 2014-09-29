@@ -1,19 +1,22 @@
 <template name="acceptedList">
+  <div>{{> loginButtons}}</div>
   <div class="feed">
     <header>
       <h2>Accepted Messages</h2>
       <div class="sub header">Messages approved by moderators</div>
     </header>
-    {{#each messages}}
-      {{> messageItem}}
-    {{/each}}
+    {{#if currentUser }}
+      {{#each messages}}
+        {{> messageItem}}
+      {{/each}}
 
-    {{#if nextPath}}
-      <a class="load-more" href="{{nextPath}}">Load more</a>
-    {{else}}
-      {{#unless ready}}
-        {{> spinner}}
-      {{/unless}}
+      {{#if nextPath}}
+        <a class="load-more" href="{{nextPath}}">Load more</a>
+        {{else}}
+        {{#unless ready}}
+          {{> spinner}}
+        {{/unless}}
+      {{/if}}
     {{/if}}
   </div>
 </template>

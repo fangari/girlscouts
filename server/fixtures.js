@@ -1,3 +1,8 @@
+if (Meteor.users.find().count() === 0) {
+  Accounts.createUser({username: 'nando', password: 'moderator'});
+  Accounts.createUser({username: 'kofi', password: 'moderator'});
+}
+
 if (Stats.find().count() === 0) {
   Stats.insert({text: "The Girl Scouts of the United States of America (GSUSA) was founded by Juliette Gordon Low in 1912."});
   Stats.insert({text: "I've got something for the girls of Savannah, and all of America, and all the world, and we're going to start it tonight!"});

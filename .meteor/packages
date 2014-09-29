@@ -14,3 +14,5 @@ sacha:spin
 npm-container
 meteorhacks:zones
 d3
+accounts-password
+accounts-ui

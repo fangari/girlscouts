@@ -1,0 +1,12 @@
+<template name="grid">
+  <section class="grid-wrap">
+    <ul id="grid" class="grid swipe-rotate">
+      <li class="title-box">
+        <h2>GIRL SCOUTS <a href='#'>Be Prepared</a></h2>
+      </li>
+      {{#each stories}}
+        {{> gridItem}}
+      {{/each}}
+    </ul>
+  </section>
+</template>

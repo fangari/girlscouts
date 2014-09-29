@@ -1,0 +1,40 @@
+.story-card {
+  -webkit-perspective: 800;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin: 3px;
+  float:left;
+  display: none;
+}
+.story-card .faces.flipped {
+  -webkit-transform: rotatey(-180deg);
+}
+.story-card .faces {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 2.5s;
+}
+.story-card .faces .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden ; /**/
+  z-index: 2;
+  font-family: Georgia;
+  font-size: 3em;
+  text-align: center;
+  line-height: 200px;
+}
+.story-card .faces .front {
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+}
+.story-card .faces .back {
+  -webkit-transform: rotatey(-180deg);
+}
+.caption {
+  margin-top: 0px;
+}

@@ -13,5 +13,5 @@ Template.tweetFeed.helpers({
       sort: { created_at: -1 }
     });
   },
-  tags: "#javascript, #ruby"
+  tags: "#GSC14"
 });

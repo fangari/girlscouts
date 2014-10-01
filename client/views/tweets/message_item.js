@@ -10,5 +10,13 @@ Template.messageItem.events({
     event.preventDefault();
     var currentMessageId = this._id;
     Messages.update({_id: this._id}, {$set: {reviewed: true}});
+    Meteor.call('tweetMessage', Messages.findOne({_id: this._id}),
+                function(error, id) {
+                  if(error) return alert(error.reason);
+                 });
   }
 });
+
+Template.messageItem.isAccepted = function() {
+  return Router.current().path === '/accepted';
+};

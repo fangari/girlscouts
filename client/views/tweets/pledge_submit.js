@@ -24,6 +24,7 @@ Template.pledgeSubmit.events({
       $(event.target).find('[name=name]').val('');
       $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
+      $(event.target).find('.char-count-js').text('129');
     });
 
     Meteor.call('submitToWordCloud', wordArray, function(error, id) {
@@ -38,12 +39,12 @@ Template.pledgeSubmit.rendered = function() {
   var area = this.find('textarea');
   var counterSpan = this.find('.char-count-js');
   function callback(counter) {
-    if (counter.all < 115) {
+    if (counter.all < 130) {
       counterSpan.style.color = 'green';
     } else {
       counterSpan.style.color = 'red';
     }
-    counterSpan.innerHTML = 114 - counter.all;
+    counterSpan.innerHTML = 129 - counter.all;
   }
     Countable.live(area, callback);
 };

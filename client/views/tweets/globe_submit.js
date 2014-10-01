@@ -5,7 +5,6 @@ Template.globeSubmit.events({
       $(event.target).find('[name=name]').val()[0] +
       $(event.target).find('[name=last_name]').val()[0];
     var message = {
-      id_str: Random.id(),
       name: $(event.target).find('[name=name]').val(),
       last_name: $(event.target).find('[name=last_name]').val(),
       text: $(event.target).find('[name=message]').val() + ' ' + initials + ' #GSC14',
@@ -20,7 +19,7 @@ Template.globeSubmit.events({
       $(event.target).find('[name=name]').val('');
       $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
-      // Router.go('globeSubmit');
+      $(event.target).find('.char-count-js').text('129');
     });
   }
 });

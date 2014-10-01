@@ -31,6 +31,11 @@ Meteor.methods({
 
     return messageId;
   },
-  accept: function(messageId) {
+  tweetMessage: function(messageAttributes) {
+    twit.updateStatus(messageAttributes.text, function(data) {
+      console.log(data.id_str);
+      if (data.errors)
+        console.log(data.errors.message);
+    });
   },
 });

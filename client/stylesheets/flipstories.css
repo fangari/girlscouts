@@ -40,6 +40,9 @@
 }
 .call-animation-js {
   display: none;
+  background: -webkit-radial-gradient(rgb(0,230,0), rgb(0,100,0));
+  background: -moz-radial-gradient(rgb(0,230,0), rgb(0,100,0));
+  background: radial-gradient(rgb(0,230,0), rgb(0,100,0));
 }
 #call-to-action-canvas {
   position: 'absolute';
@@ -48,9 +51,6 @@
   left: 0;
   right: 0;
   z-index: -1;
-  background: -webkit-radial-gradient(rgb(0,230,0), rgb(0,100,0));
-  background: -moz-radial-gradient(rgb(0,230,0), rgb(0,100,0));
-  background: radial-gradient(rgb(0,230,0), rgb(0,100,0));
 }
 .text-box {
   background: rgba(0,0,0,0.1);

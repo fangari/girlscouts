@@ -5,7 +5,6 @@
 
 standard-app-packages
 meteorhacks:npm
-arunoda:streams
 mrt:momentjs
 iron:router
 mrt:iron-router-progress

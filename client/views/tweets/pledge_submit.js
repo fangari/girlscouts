@@ -48,3 +48,9 @@ Template.pledgeSubmit.rendered = function() {
   }
     Countable.live(area, callback);
 };
+
+Template.pledgeSubmit.helpers({
+  words: function() {
+    return WordCloud.find({filler: false});
+  }
+});

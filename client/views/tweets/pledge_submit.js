@@ -2,7 +2,7 @@ Template.pledgeSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
     var initials = $.parseHTML("&mdash;")[0].textContent +
-      $(event.target).find('[name=name]').val()[0] +
+      $(event.target).find('[name=name]').val() +
       $(event.target).find('[name=last_name]').val()[0];
     var message = {
       name: $(event.target).find('[name=name]').val(),
@@ -36,15 +36,20 @@ Template.pledgeSubmit.events({
 });
 
 Template.pledgeSubmit.rendered = function() {
+  var msgLength = 130;
   var area = this.find('textarea');
   var counterSpan = this.find('.char-count-js');
+  $("input[name='name']").on('keyup', function(e) {
+    msgLength = 130 - this.value.length;
+    counterSpan.innerHTML = msgLength - area.value.length;
+  });
   function callback(counter) {
-    if (counter.all < 130) {
+    if (counter.all < msgLength + 1) {
       counterSpan.style.color = 'green';
     } else {
       counterSpan.style.color = 'red';
     }
-    counterSpan.innerHTML = 129 - counter.all;
+    counterSpan.innerHTML = msgLength - counter.all;
   }
     Countable.live(area, callback);
 };

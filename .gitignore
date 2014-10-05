@@ -1,3 +1,4 @@
 .meteor/local
 .meteor/meteorite
-private/*
+private/twitter_credentials.json
+private/accounts.json

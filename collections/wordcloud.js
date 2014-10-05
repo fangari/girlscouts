@@ -5,7 +5,6 @@ WordCloud.allow({
 });
 
 Meteor.methods({
-
   submitToWordCloud: function(wordArray) {
     if (wordArray.length === 0)
       throw new Meteor.Error(422, 'Please choose a least one word');

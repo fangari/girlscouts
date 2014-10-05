@@ -28,56 +28,9 @@
     <div class="control-group">
       <div class="control-label" for="words">Words</div>
       <div class="controls">
-        test1: <input type="checkbox" name="words" value="test1">
-        test2: <input type="checkbox" name="words" value="test2">
-        test3: <input type="checkbox" name="words" value="test3">
-        test4: <input type="checkbox" name="words" value="test4">
-        test5: <input type="checkbox" name="words" value="test5">
-        test6: <input type="checkbox" name="words" value="test6">
-        test7: <input type="checkbox" name="words" value="test7">
-        test8: <input type="checkbox" name="words" value="test8">
-        test9: <input type="checkbox" name="words" value="test9">
-        test10: <input type="checkbox" name="words" value="test10">
-        test11: <input type="checkbox" name="words" value="test11">
-        test12: <input type="checkbox" name="words" value="test12">
-        test13: <input type="checkbox" name="words" value="test13">
-        test14: <input type="checkbox" name="words" value="test14">
-        test15: <input type="checkbox" name="words" value="test15">
-        test16: <input type="checkbox" name="words" value="test16">
-        test17: <input type="checkbox" name="words" value="test17">
-        test18: <input type="checkbox" name="words" value="test18">
-        test19: <input type="checkbox" name="words" value="test19">
-        test20: <input type="checkbox" name="words" value="test20">
-        test21: <input type="checkbox" name="words" value="test21">
-        test22: <input type="checkbox" name="words" value="test22">
-        test23: <input type="checkbox" name="words" value="test23">
-        test24: <input type="checkbox" name="words" value="test24">
-        test25: <input type="checkbox" name="words" value="test25">
-        test26: <input type="checkbox" name="words" value="test26">
-        test27: <input type="checkbox" name="words" value="test27">
-        test28: <input type="checkbox" name="words" value="test28">
-        test29: <input type="checkbox" name="words" value="test29">
-        test30: <input type="checkbox" name="words" value="test30">
-        test31: <input type="checkbox" name="words" value="test31">
-        test32: <input type="checkbox" name="words" value="test32">
-        test33: <input type="checkbox" name="words" value="test33">
-        test34: <input type="checkbox" name="words" value="test34">
-        test35: <input type="checkbox" name="words" value="test35">
-        test36: <input type="checkbox" name="words" value="test36">
-        test37: <input type="checkbox" name="words" value="test37">
-        test38: <input type="checkbox" name="words" value="test38">
-        test39: <input type="checkbox" name="words" value="test39">
-        test40: <input type="checkbox" name="words" value="test40">
-        test41: <input type="checkbox" name="words" value="test41">
-        test42: <input type="checkbox" name="words" value="test42">
-        test43: <input type="checkbox" name="words" value="test43">
-        test44: <input type="checkbox" name="words" value="test44">
-        test45: <input type="checkbox" name="words" value="test45">
-        test46: <input type="checkbox" name="words" value="test46">
-        test47: <input type="checkbox" name="words" value="test47">
-        test48: <input type="checkbox" name="words" value="test48">
-        test49: <input type="checkbox" name="words" value="test49">
-        test50: <input type="checkbox" name="words" value="test50">
+        {{#each words}}
+          {{> wordItem}}
+        {{/each}}
       </div>
     </div>
     <div class="control-group">

@@ -11,8 +11,11 @@ Meteor.publish('stats', function() {
   return Stats.find({}, {sort: {_id: -1}});
 });
 
-Meteor.publish('wordcloud', function() {
-  return WordCloud.find();
+Meteor.publish('wordcloud', function(audience) {
+  if(!!audience && (audience === 'adults' || audience === 'children'))
+    return WordCloud.find({audience: audience});
+  else
+    return WordCloud.find({audience: 'adults'});
 });
 
 Meteor.publish('stories', function() {

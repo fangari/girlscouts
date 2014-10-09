@@ -2,12 +2,12 @@ Template.pledgeSubmit.events({
   'submit form': function(event) {
     event.preventDefault();
     var initials = $.parseHTML("&mdash;")[0].textContent +
-      $(event.target).find('[name=name]').val() +
+      $(event.target).find('[name=name]').val() + ' ' +
       $(event.target).find('[name=last_name]').val()[0];
     var message = {
       name: $(event.target).find('[name=name]').val(),
       last_name: $(event.target).find('[name=last_name]').val(),
-      text: $(event.target).find('[name=message]').val() +
+      text: 'I pledge to ' + $(event.target).find('[name=message]').val() +
         ' ' + initials + ' #GSC14',
       origin: 'pledge',
       reviewed: false
@@ -36,7 +36,7 @@ Template.pledgeSubmit.events({
 });
 
 Template.pledgeSubmit.rendered = function() {
-  var msgLength = 130;
+  var msgLength = 140 - 'I pledge to  - I #GSC14'.length;
   var area = this.find('textarea');
   var counterSpan = this.find('.char-count-js');
   $("input[name='name']").on('keyup', function(e) {
@@ -51,11 +51,6 @@ Template.pledgeSubmit.rendered = function() {
     }
     counterSpan.innerHTML = msgLength - counter.all;
   }
-    Countable.live(area, callback);
+  Countable.live(area, callback);
+  new FForm(this.find('#fs-form-wrap'));
 };
-
-Template.pledgeSubmit.helpers({
-  words: function() {
-    return WordCloud.find({filler: false});
-  }
-});

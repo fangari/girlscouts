@@ -1,17 +1,21 @@
-<template name="pledgeSubmit">
-
+<template name="pledgeSubmitChildren">
   <header>
-    <h1>Take Action and Pledge to Support Girls</h1>
+    <h1>Make a Take Action Pledge</h1>
     <p>
-      Stand up for girls! We know it's not enough to tell them they can do and
-      be anything&mdash;we have to take action and provide them with the
-      opportunities and support they need to follow their dreams. What will you
-      do when you get home to make this a better world for girls?
+      So many issues confront us in our community and around the world.
+      Sometimes the problems seem overwhelming.
+    </p>
+    <p>
+      Can girls really change that? Can you change the world?
+    </p>
+    <p>
+      You can. There are so many opportunities to make a difference.
+      And you can start today!
     </p>
   </header>
   <form class="main" action="">
     <div class="control-group">
-      <div class="control-label" for="words">Choose your way to help girls.</div>
+      <div class="control-label" for="words">Choose your issue</div>
       <div class="controls">
         {{#each words}}
           {{> wordItem}}
@@ -21,16 +25,15 @@
     <div class="control-group">
       <h3>Write your pledge</h3>
       <p>
-        Choose a realistic goal. Commit to one concrete step. Maybe you'll join
-        your council's Gold Award committee, volunteer to lead a troop, or take
-        girls on a field trip to explore a stream habitat. It's all up to you.
+        You've chosen a BIG issue. Now you've got to get real and commit to one
+        small step. You could ask a friend to team up with you, walk around your
+        community to identify issue-specific problems you could tackle, or
+        brainstorm a Take Action project with your troop. It's all up to you.
       </p>
       <div class="control-label" for="name">Name</div>
       <div class="controls">
         <input type="text" name="name" placeholder="What is your name?">
       </div>
-    </div>
-    <div class="control-group">
       <div class="control-label" for="last_name">Last Name</div>
       <div class="controls">
         <input type="text" name="last_name" placeholder="What is your last name?">
@@ -39,15 +42,15 @@
     <div class="control-group">
       <div class="control-label" for="message">Message</div>
       <div class="controls">
-        <textarea type="text" name="message"
-          cols="50" rows="3" placeholder="I pledge to&hellip;"></textarea>
+        <textarea type="text" name="message" cols="50" rows="3" placeholder="I pledge to&hellip;"></textarea>
         <span class="char-count-js"></span>
       </div>
       <p>
         Please don't include a twitter handle or other identifying information.
         Your pledge will be reviewed before it is posted on our pledge wall and
         to Twitter. Retweet your pledge and spread the word!
-    </p>    </div>
+      </p>
+    </div>
     <div class="control-group">
       <div class="controls">
         <input type="submit" value="Submit">

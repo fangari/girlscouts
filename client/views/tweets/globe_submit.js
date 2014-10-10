@@ -7,7 +7,7 @@ Template.globeSubmit.events({
     var message = {
       name: $(event.target).find('[name=name]').val(),
       last_name: $(event.target).find('[name=last_name]').val(),
-      text: $(event.target).find('[name=message]').val() + ' ' + initials + ' #GSC14',
+      text: "I see a world " + $(event.target).find('[name=message]').val() + ' ' + initials + ' #GSC14',
       origin: 'globe',
       reviewed: false
     };
@@ -19,13 +19,13 @@ Template.globeSubmit.events({
       $(event.target).find('[name=name]').val('');
       $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
-      $(event.target).find('.char-count-js').text('129');
+      $(event.target).find('.char-count-js').text('130');
     });
   }
 });
 
 Template.globeSubmit.rendered = function() {
-  var msgLength = 140 - ' - I #GSC14'.length;
+  var msgLength = 140 - 'I see a world  - I #GSC14'.length;
   var area = this.find('textarea');
   var counterSpan = this.find('.char-count-js');
   $("input[name='name']").on('keyup', function(e) {

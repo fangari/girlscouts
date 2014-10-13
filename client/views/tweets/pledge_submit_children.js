@@ -1,4 +1,4 @@
-Template.globeSubmit.events({
+Template.pledgeSubmitChildren.events({
   'submit form': function(event) {
     event.preventDefault();
     var initials = $.parseHTML("&mdash;")[0].textContent +
@@ -7,10 +7,15 @@ Template.globeSubmit.events({
     var message = {
       name: $(event.target).find('[name=name]').val(),
       last_name: $(event.target).find('[name=last_name]').val(),
-      text: "I see a world " + $(event.target).find('[name=message]').val() + ' ' + initials + ' #GSC14',
-      origin: 'globe',
+      text: 'I pledge to ' + $(event.target).find('[name=message]').val() +
+        ' ' + initials + ' #GSC14',
+      origin: 'pledge',
       reviewed: false
     };
+
+    var wordArray = _.map($("input:checked"), function(word) {
+      return word.value;
+    });
 
     //Method call or endpoint message stream
     Meteor.call('submitMessage', message, function(error, id) {
@@ -19,23 +24,24 @@ Template.globeSubmit.events({
       $(event.target).find('[name=name]').val('');
       $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
-      $(event.target).find('.char-count-js').text('115');
+      $(event.target).find('.char-count-js').text('129');
+    });
+
+    Meteor.call('submitToWordCloud', wordArray, function(error, id) {
+      if (error)
+        return alert(error.reason);
+      $(event.target).find('[name=words]').prop("checked", false);
     });
   }
 });
 
-Template.globeSubmit.rendered = function() {
-  var nameLength;
-  var msgLength = 140 - 'I see a world  - I #GSC14'.length;
+Template.pledgeSubmitChildren.rendered = function() {
+  var msgLength = 140 - 'I pledge to  - I #GSC14'.length;
   var area = this.find('textarea');
   var counterSpan = this.find('.char-count-js');
-  var $firstName = this.$("input[name='name']");
-  $firstName.on('keyup', function(e) {
-    nameLength = this.value.length;
-    counterSpan.innerHTML = msgLength - nameLength - area.value.length;
-  });
-  $firstName.on('blur', function() {
-    msgLength = msgLength - this.value.length;
+  $("input[name='name']").on('keyup', function(e) {
+    msgLength = 130 - this.value.length;
+    counterSpan.innerHTML = msgLength - area.value.length;
   });
   function callback(counter) {
     if (counter.all < msgLength + 1) {
@@ -46,4 +52,5 @@ Template.globeSubmit.rendered = function() {
     counterSpan.innerHTML = msgLength - counter.all;
   }
   Countable.live(area, callback);
+  new FForm(this.find('#fs-form-wrap'));
 };

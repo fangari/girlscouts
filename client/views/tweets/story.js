@@ -335,7 +335,7 @@ Template.story.rendered = function() {
       init();
   };
 
-  Meteor.setInterval(function() {
+  (function animate() {
     var animationDiv = $('.call-animation-js');
     if(!storiesQueue.isEmpty()) {
       cancelAnimationFrame(callToActionAnimationId);
@@ -348,5 +348,6 @@ Template.story.rendered = function() {
         animationDiv.fadeIn(100);
       animateCallToAction(window, Date.now());
     }
-  }, 11500);
+    setTimeout(animate, 11500);
+  })();
 };

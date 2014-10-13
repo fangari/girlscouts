@@ -36,12 +36,17 @@ Template.pledgeSubmit.events({
 });
 
 Template.pledgeSubmit.rendered = function() {
+  var nameLength;
   var msgLength = 140 - 'I pledge to  - I #GSC14'.length;
   var area = this.find('textarea');
   var counterSpan = this.find('.char-count-js');
-  $("input[name='name']").on('keyup', function(e) {
-    msgLength = 130 - this.value.length;
-    counterSpan.innerHTML = msgLength - area.value.length;
+  var $firstName = this.$("input[name='name']");
+  $firstName.on('keyup', function(e) {
+    nameLength = this.value.length;
+    counterSpan.innerHTML = msgLength - nameLength - area.value.length;
+  });
+  $firstName.on('blur', function() {
+    msgLength = msgLength - this.value.length;
   });
   function callback(counter) {
     if (counter.all < msgLength + 1) {

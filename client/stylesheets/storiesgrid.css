@@ -39,11 +39,11 @@ a:hover, a:focus {
   list-style: none;
 }
 
-.js .grid {
+.grid {
   background: url(./loading.gif) no-repeat 50% 100px;
 }
 
-.js .grid.loaded {
+.grid.loaded {
   background: none;
 }
 
@@ -55,12 +55,12 @@ a:hover, a:focus {
   vertical-align: top;
 }
 
-.js .grid li {
+.grid li {
   display: none;
   float: left;
 }
 
-.js .grid.loaded li {
+.grid.loaded li {
   display: block;
 }
 
@@ -193,8 +193,8 @@ a:hover, a:focus {
   100% { opacity: 0; }
 }
 
-.js .grid li img,
-.js .grid li h3 {
+.grid li img,
+.grid li h3 {
   visibility: hidden;
 }
 

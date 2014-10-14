@@ -34,6 +34,10 @@
   z-index: 2;
 }
 
+.txt_cloud_action.blue-banner {
+  background: #1D4499;
+}
+
 .txt_cloud_girls{
   font-family: "omnes-pro", sans-serif;
   font-size: 2em;

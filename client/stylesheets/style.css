@@ -130,3 +130,11 @@ html > body #pledge_Hdr_grn {
   height: auto;
   min-height: 80px;
 }
+
+.Txt_Living {
+  margin-top: 20%;
+}
+
+.text-center {
+  text-align: center;
+}

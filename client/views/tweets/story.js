@@ -58,8 +58,8 @@ Template.story.rendered = function() {
         dirtyRegions = [],
         minForce = 0,
         maxForce = 500,
-        colors = ['rgb(255, 255, 255)', 'rgb(255, 255, 0)',
-                  'rgb(0, 255, 0)'],
+        colors = ['rgb(255, 255, 255)', 'rgb(0, 173, 237)',
+                  'rgb(236, 0, 139)'],
         lastWord = time, FPS = 60;
 
     canvas = animationDiv.children('canvas')[0];
@@ -133,15 +133,15 @@ Template.story.rendered = function() {
        * Loop logic.
        */
       var pulse = function() {
-        var word = 'Girl Scouts: Then &amp; now.';
+        var word = 'Our Story.';
         if(Date.now() - lastWord > 2875 &&
            Date.now() - lastWord < 5750)
-          word = 'Double click the grid';
+          word = 'Your Story';
         if(Date.now() - lastWord > 5750 &&
            Date.now() - lastWord < 8625)
-          word = 'To see where Girl Scouts';
+          word = 'Her Story';
         if(Date.now() - lastWord > 8625)
-          word = 'Took these ladies.';
+          word = 'My Story.';
         box.innerHTML = '<p>' + word + '</p>';
         clear();
         update();
@@ -222,10 +222,14 @@ Template.story.rendered = function() {
           if(Date.now() - time > 1275 &&
              Date.now() - time < 2550) {
             particle.goalX = center.x + 180 * Math.pow(Math.sin(index), 3);
-          particle.goalY = center.y + 10 * ( - (15 * Math.cos(index) -
+          particle.goalY = center.y + 10 * ( - (10 * Math.cos(index) -
                                                 5 * Math.cos(2 * index) -
-                                                2 * Math.cos(3 * index) -
-                                                Math.cos(4 * index)));
+                                                4 * Math.cos(3 * index) -
+                                                Math.sin(4 * index) -
+                                                4 * Math.cos(5 * index)));
+
+          // particle.goalX = center.x + 180 * Math.pow(Math.sin(steps) + (2 * (Math.sin(2*steps))),3);
+          // particle.goalY = center.y + Math.cos(steps) - (2 * (Math.sin(2*index)));
           }
 
           // Random
@@ -270,7 +274,7 @@ Template.story.rendered = function() {
              Date.now() - time < 8925) {
             maxForce = 500;
           var radius = 200;
-          particle.goalX = (center.x + radius * Math.cos(steps));
+          particle.goalX = (center.x + radius * Math.sin(steps));
           particle.goalY = (center.y + radius * Math.tan(steps));
           }
 

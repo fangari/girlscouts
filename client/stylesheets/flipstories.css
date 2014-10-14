@@ -1,7 +1,7 @@
 .story-card {
   -webkit-perspective: 800;
   width: 100%;
-  height: 300px;
+  height:100%;
   position: relative;
   margin: 3px;
   float:left;
@@ -16,13 +16,18 @@
   -webkit-transform-style: preserve-3d;
   -webkit-transition: 2.5s;
 }
+.faces{
+  border: 30px solid #00ae58;
+  min-height:768px;
+}
 .story-card .faces .face {
   width: 100%;
   height: 100%;
   position: absolute;
   -webkit-backface-visibility: hidden ; /**/
   z-index: 2;
-  font-family: Georgia;
+  font-family: "omnes-pro";
+  font-weight:400;
   font-size: 3em;
   text-align: center;
   line-height: 200px;
@@ -37,6 +42,13 @@
 }
 .caption {
   margin-top: 0px;
+  font-family: "omnes-pro";
+  font-weight:400;
+  font-size: 1.5em;
+  width:100%;
+  height:250px;
+  background-color: #00ae58;
+  color:#fff;
 }
 .call-animation-js {
   display: none;
@@ -45,7 +57,8 @@
   background: radial-gradient(rgb(0,230,0), rgb(0,100,0));
 }
 #call-to-action-canvas {
-  position: 'absolute';
+  position: absolute;
+  width:100%;
   top: 0;
   bottom: 0;
   left: 0;
@@ -54,16 +67,27 @@
 }
 .text-box {
   background: rgba(0,0,0,0.1);
-  height: 70px;
+  height: 100px;
   position: absolute;
-  top: 45%;
+  top: 55%;
   left: 50%;
 }
 .text-box > p {
   color: #FFF;
   font-weight: bold;
-  font-family: 'comic-sans';
-  font-size: 2em;
+  font-family: 'omnes-pro';
+  font-size: 4em;
   text-align: center;
-  margin-top: 18px;
+  margin-top: 10px;
+}
+
+.backLogo img {
+  position:absolute;
+  bottom:120px;
+  width: 60px; /* the width of the logo image */
+  height: 58px;  /*the height of the logo image*/
+  margin:20px;
+  float:left;
+  vertical-align: middle;
+  left:10px;
 }

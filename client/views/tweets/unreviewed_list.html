@@ -1,9 +1,25 @@
 <template name="unreviewedList">
+  <div class="wrapperHeader">
+  <div id="TN_header">
+    <img src="stories/blue_dot_header.png" alt="logo"/>
+   </div>
+   <div id="list_Hdr_grn"></div>
+   <div id="list_Hdr_blu"></div>
+
+   <div class="txt_list_grn">
+     <p class="lastNode">Pending</p>
+   </div>
+   <div class="txt_list_blu">
+    <p class="lastNode">Messages</p>
+   </div>
+  </div>
+  <div class="GSLogo">
+    <img src="stories/GS_ART_profiles_white.png" alt="logo"/>
+   </div>
   <div>{{> loginButtons}}</div>
   <div class="feed">
     <header>
-      <h2>Recent Activity</h2>
-      <div class="sub header">Submitted Messages pending approval</div>
+      <h2 class='u_list'>Messages Pending for Acceptance</h2>
     </header>
     {{#if currentUser}}
       {{#each messages}}

@@ -1,14 +1,23 @@
 <template name="pledgeWall">
+  <div class="wrapperHeader">
+   <div id="TN_header">
+    <img src="stories/blue_dot_header.png" alt="logo"/>
+   </div>
+   <div id="pledge_Hdr_grn"></div>
+   <div id="pledge_Hdr_blu"></div>
+
+   <div class="txt_pledge">
+     <p class="lastNode">Take Action Pledges</p>
+   </div>
+   <div class="txt_gsc14">
+    <p class="lastNode">#GSC14</p>
+   </div>
+  </div>
+  <div class="GSLogo">
+    <img src="stories/GS_ART_profiles_white.png" alt="logo"/>
+   </div>
+
   <div class="feed">
-    <header>
-      <h1>GSC14 Pledge Wall</h1>
-      <p>
-        Consectetur aliquam sed reprehenderit elit nemo. Maiores esse
-        perspiciatis voluptatibus libero itaque harum debitis fugit consectetur!
-        Illo voluptatibus ex voluptatem praesentium eligendi. Aperiam eos
-        commodi ex tempore assumenda, cumque nobis!
-      </p>
-    </header>
     {{#each messages}}
       {{> pledgeItem}}
     {{/each}}

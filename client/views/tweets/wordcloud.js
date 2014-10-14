@@ -1,15 +1,16 @@
 Template.wordcloud.helpers({
-  title: function() {
-    if ( Router.current().path === '/wordcloud/children' )
-      return 'Girls Take Action';
-    else
-      return 'Take Action for Girls';
+  isChild: function() {
+    if (Router.current().path === '/wordcloud/children')
+      return true;
+    return false;
   },
-  subtitle: function() {
-    if ( Router.current().path === '/wordcloud/children' )
-      return 'What is your issue?';
-    else
-      return 'How will you make the world a better place for girls?';
+  header: function(){
+    if (Router.current().path === '/wordcloud/children') {
+      return {title: '', subtitle: 'Girls Take Action',
+              copy: "What's your issue?", class: "child"};
+    }
+    return {title: 'Take action', subtitle: 'for Girls',
+            copy: 'How will you make the world a better place for girls?'};
   }
 });
 

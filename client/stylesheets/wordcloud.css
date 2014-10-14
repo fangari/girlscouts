@@ -1,5 +1,5 @@
 .halfcircle{
-  position: fixed;
+  position: relative;
   top: -3.55em;
   right: -8em;
   height: 276.5px;
@@ -12,107 +12,70 @@
   -webkit-border-radius: 0 0 276.5px 276.5px;
 }
 
-.halfcircle_child{
-  position: fixed;
+.halfcircle.child{
   top: -6em;
-  right: -12em;
-  height: 276.5px;
-  width: 553px;
-  float: right;
-  border: 10px solid#00AE5E;
-  background-color: #fff;
-  border-radius: 0 0 225px 225px;
-  -moz-border-radius: 0 0 225px 225px;
-  -webkit-border-radius: 0 0 276.5px 276.5px;
-}
-
-#cloud_Hdr_blu {
-  left: 30%;
-  position: absolute;
-  top: 4.75em;
-  margin-bottom: 0;
-  /*background-color: #1D4499;*/
-  background-color: #00adef;
-  width: 23em;
-  padding: 1em;
-  height: 7em;
-  transform: rotate(-7deg);
-  z-index: 3px;
-}
-
-html > body #cloud_Hdr_blu {
-  height: auto;
-  min-height: 65px;
-}
-
-#cloud_Hdr_grn {
-  left: 41%;
-  position: absolute;
-  top: 8.25em;
-  margin-bottom: 0;
-  background-color: #00ae59;
-  width: 16em;
-  padding: 1em;
-  height: 3em;
-  transform: rotate(-2deg);
-  -webkit-transform: rotate(-2deg);
-  -moz-transform:rotate(-2deg);
-}
-
-html > body #cloud_Hdr_grn {
-  height: auto;
-  min-height: 75px;
+  right: -9em;
 }
 
 .txt_cloud_action{
-  display: inline-block;
   font-family: "omnes-pro", sans-serif;
-  font-size: 400%;
+  font-size: 2em;
   font-weight: 500;
   text-align: center;
   color: #fff;
-  line-height: 90%;
+  background: #00ADEF;
+  padding: 5px 20px;
   left: 26%;
   position: absolute;
-  top: 1.2em;
-  margin-bottom: 0;
-  width: 7em;
+  top: 2em;
   transform: rotate(-7deg);
   -webkit-transform: rotate(-7deg);
   -moz-transform:rotate(-7deg);
-  z-index: 8px;
+  z-index: 2;
 }
 
 .txt_cloud_girls{
-  display: inline-block;
   font-family: "omnes-pro", sans-serif;
-  font-size: 400%;
+  font-size: 2em;
   font-weight: 500;
   text-align: center;
-  color: #fff;
-  line-height: 100%;
-  padding: 2px 50px;
+  color: white;
+  background: #00AE59;
+  padding: 5px 20px;
   left: 36.25%;
   position: absolute;
-  top: 2em;
-  margin-bottom: 0;
-  width: 6em;
+  top: 3.3em;
   transform: rotate(-2deg);
   -webkit-transform: rotate(-2deg);
   -moz-transform:rotate(-2deg);
-  z-index: 9px;
+  z-index: 1;
+}
+
+.txt_cloud_girls.child{
+  padding: 10px 20px;
+  left: 30%;
+  top: 80%;
+  transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
 }
 
 .cld_hdr_txt{
-  position: relative;
-  top:1.15em;
-  right:-0.35em;
-  display: block;
-  float:right;
-  width:11em;
-  z-index: 10px;
-  font-size: 2.15em;
+  text-align: center;
+  margin-left: 1.3em;
+  margin-top: 3em;
+  width: 12em;
+  font-size: 1.5em;
   font-weight: 500;
-  color:#1D4499;
-  line-height: 115%
+  color: #1D4499;
+  line-height: 115%;
+}
+
+.cld_hdr_txt.child {
+  margin-top: 4.5em;
+  font-size: 1.6em;
+  margin-left: 0.6em;
+}
+
+svg {
+  margin: 10%;
 }

@@ -233,41 +233,6 @@ html > body #list_Hdr_grn {
   z-index: 9px;
 }
 
-/* Accepted List Css */
-#accept_Hdr_blu {
-  left: 32%;
-  position: absolute;
-  top: 4.75em;
-  margin-bottom: 0;
-  /*background-color: #1D4499;*/
-  background-color: #00adef;
-  width: 19em;
-  padding: 1em;
-  height: 7em;
-  transform: rotate(-7deg);
-  z-index: 3px;
-}
-
-html > body #accept_Hdr_blu {
-  height: auto;
-  min-height: 65px;
-}
-
-#accept_Hdr_grn {
-  left: 40%;
-  position: absolute;
-  top: 8.25em;
-  margin-bottom: 0;
-  background-color: #00ae59;
-  width: 19em;
-  padding: 1em;
-  height: 3em;
-  transform: rotate(-2deg);
-  -webkit-transform: rotate(-2deg);
-  -moz-transform:rotate(-2deg);
-}
-
-html > body #accept_Hdr_grn {
-  height: auto;
-  min-height: 75px;
+#login-buttons {
+  margin-top: 12%;
 }

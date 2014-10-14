@@ -73,7 +73,6 @@ Template.grid.rendered = function() {
     this.items = [];
     this.options = _.extend({}, this.options);
     _.extend(this.options, options);
-    // this._init();
   };
 
   GridScrollFx.prototype.options = {

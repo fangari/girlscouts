@@ -10,10 +10,16 @@
 body {
   font-size: 100%;
   line-height: 1.25;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  font-family: 'omnes-pro', sans-serif;
+  font-weight: 200;
+  background-color:rgb(234,244,234);
+  margin: 0px;
 }
 
+h1{
+font-family: 'omnes-pro', sans-serif;
+font-weight: 600;
+}
 a {
   color: #FF2A48;
   text-decoration: none;
@@ -25,7 +31,7 @@ a:hover, a:focus {
 }
 
 .grid-wrap {
-  background: #D3EEE2;
+  background-color:rgb(234,244,234);
   clear: both;
   margin: 0 auto;
   padding: 0;
@@ -40,7 +46,7 @@ a:hover, a:focus {
 }
 
 .grid {
-  background: url(./loading.gif) no-repeat 50% 100px;
+  background: url(stories/loading.gif) no-repeat 50% 100px;
 }
 
 .grid.loaded {
@@ -92,7 +98,7 @@ a:hover, a:focus {
 .grid li img {
   display: block;
   outline: none;
-  border: none;
+  /*border: none;*/
 }
 
 .grid li > a {
@@ -144,15 +150,19 @@ a:hover, a:focus {
   margin: 0;
   padding: 20px;
   width: 100%;
-  background: #2E3444;
+  background: #1D4499;
   color: #D3EEE2;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 800;
+  font-weight: 500;
   font-size: 1em;
   -webkit-transition: -webkit-transform 0.2s, color 0.2s;
   transition: transform 0.2s, color 0.2s;
+}
+
+.grid li h3:target {
+background:#00ae58;
 }
 
 /* Animations */

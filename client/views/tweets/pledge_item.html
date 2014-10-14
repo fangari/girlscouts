@@ -1,8 +1,9 @@
 <template name="pledgeItem">
   <section>
-    <div class="pledge_message">
-      <div class="date">{{moments created_at}}</div>
-      <div class="pledge_text ">
+    <div class="message">
+          <div class="date"><img src="stories/date_dot.png"
+            class="date_dot">{{moments created_at}}</div>
+      <div class="summary">
         {{text}}
       </div>
       <p class="message_name">

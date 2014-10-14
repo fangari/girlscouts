@@ -30,10 +30,12 @@ Template.wordcloud.rendered = function() {
 
   var layout = d3.layout.cloud()
     .size([w, h])
+    .font('omnes-pro')
+    .fontWeight(function() { return 600; })
     .timeInterval(10)
     .text(function(d) { return d.text; })
     .fontSize(function(d) { return Math.abs(fontSize(+d.size)); })
-    .padding(1)
+    .padding(3)
     .on("end", draw);
 
     Tracker.autorun(function() {
@@ -45,7 +47,7 @@ Template.wordcloud.rendered = function() {
     });
 
   function generateCloud(wordArray) {
-    fontSize = d3.scale.log().range([16, 100]);
+    fontSize = d3.scale.log().range([20, 100]);
     words = [];
     layout.stop();
     fontSize.domain([+wordArray[wordArray.length - 1].size || 1, +wordArray[0].size]);
@@ -66,6 +68,9 @@ Template.wordcloud.rendered = function() {
         })
         .style("font-size", function(d) {
           return d.size + "px";
+        })
+        .style("font-weight", function(d) {
+          return d.weight;
         });
 
     text.enter().append("text")
@@ -74,6 +79,9 @@ Template.wordcloud.rendered = function() {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
         .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-weight", function(d) {
+          return d.weight;
+        })
         .style("opacity", 1e-6)
       .transition()
         .duration(1000)

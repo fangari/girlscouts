@@ -1,0 +1,11 @@
+.text-box-globe {
+  background: rgba(0,0,0,1);
+  height:100%;
+  width:100%;
+  color: #fff;
+  font-size: 9em;
+  font-weight: bold;
+  line-height: 150%;
+  padding: 200px 0;
+  overflow: hidden;
+}

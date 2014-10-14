@@ -48,7 +48,7 @@ Template.globeDisplay.rendered = function() {
 
   var undisplayedStat = true;
   var minPriority = 0;
-  Meteor.setInterval(function() {
+  (function displayMsgs() {
     var msg;
     if (displayQueue.isEmpty()) {
       messageDisplay.set(getRandomStat());
@@ -73,5 +73,6 @@ Template.globeDisplay.rendered = function() {
         }
       }
     }
-  }, 3000);
+    setTimeout(displayMsgs, 45000);
+  })();
 };

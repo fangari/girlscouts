@@ -1,11 +1,13 @@
 <template name="pledgeItem">
-  <div class="message">
-    <div class="date">{{moments created_at}}</div>
-    <div class="summary">
-      {{text}}
+  <section>
+    <div class="pledge_message">
+      <div class="date">{{moments created_at}}</div>
+      <div class="pledge_text ">
+        {{text}}
+      </div>
+      <p class="message_name">
+        Submitted by <span class='submitted_name'>{{name}} </span>
+      </p>
     </div>
-    <p>
-      Submitted by {{name}}
-    </p>
-  </div>
+  </section>
 </template>

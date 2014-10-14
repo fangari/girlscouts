@@ -1,0 +1,95 @@
+div#TA_header img{
+  position:absolute;
+  top:0px;
+  width:100%;
+  height:140px;
+  left:0px;
+}
+
+#choosewrapper{
+  position:relative;
+  margin-top:12em;
+  text-align: center;
+}
+
+#choosewrapper > p{
+  position: relative;
+  font-weight: 400;
+  font-size: 1.75em;
+  padding:10px;
+  width: 53%;
+  margin:30px;
+  display: block;
+  float:center;
+  left:22%;
+  line-height: 120%;
+}
+
+#GS_Big_Logo img{
+  position:relative;
+  top:10px;
+  width: 250px; /* the width of the logo image */
+  height: 253px;  /*the height of the logo image*/
+  float:center;
+  vertical-align: middle;
+  margin-bottom: .75em;
+}
+
+#buttonwrap{
+  display: inline-block;
+  position: relative;
+  width:65%;
+  float:center;
+}
+
+#buttonwrap ul{
+  list-style-type: none;
+}
+
+#buttonwrap ul li{
+  text-decoration: none;
+  display:inline;
+  width:80%;
+}
+
+.js-children{
+  display:inline-block;
+  padding: 0.6em 1.5em;
+  /* border: .095em solid #d3d3d3;*/
+  border:none;
+  border-radius: 40px;
+  font-weight: 300;
+  font-size: 1em;
+  width:9em;
+  height:3em;
+  background:#fff;
+  margin:10px;
+  color:#00ae58;
+  text-align: center;
+}
+
+.js-adults{
+  padding: 0.6em 1.5em;
+  /*border: 2px solid #232529;*/
+  border-radius: 40px;
+  border:none;
+  font-weight: 300;
+  font-size: 1em;
+  width:9em;
+  height:3em;
+  background:#00adef;
+  margin:10px;
+  color:#fff;
+  text-align: center;
+}
+
+.js-children:hover{
+  background-color:#00ae58;
+  color:#fff;
+}
+
+.js-adults:hover{
+  background-color:#fff;
+  color:#00adef;
+  font-weight: 600;
+}

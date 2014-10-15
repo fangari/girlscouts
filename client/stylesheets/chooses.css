@@ -6,6 +6,20 @@ div#TA_header img{
   left:0px;
 }
 
+.take_action_logo img{
+position: fixed;
+top: 2.75em;
+width: 22em;
+height: 50px;
+margin: 6px;
+float: center;
+vertical-align: middle;
+left: 36%;
+z-index: 100;
+
+}
+
+
 #choosewrapper{
   position:relative;
   margin-top:12em;
@@ -14,7 +28,7 @@ div#TA_header img{
 
 #choosewrapper > p{
   position: relative;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.75em;
   padding:10px;
   width: 53%;
@@ -22,17 +36,7 @@ div#TA_header img{
   display: block;
   float:center;
   left:22%;
-  line-height: 120%;
-}
-
-#GS_Big_Logo img{
-  position:relative;
-  top:10px;
-  width: 250px; /* the width of the logo image */
-  height: 253px;  /*the height of the logo image*/
-  float:center;
-  vertical-align: middle;
-  margin-bottom: .75em;
+  line-height: 115%;
 }
 
 #buttonwrap{

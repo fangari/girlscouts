@@ -1,5 +1,5 @@
 Template.globeSubmit.events({
-  'submit form': function(event) {
+  'submit form': function(event, template) {
     event.preventDefault();
     var initials = $.parseHTML("&mdash;")[0].textContent +
       $(event.target).find('[name=name]').val() + ' ' +
@@ -21,10 +21,12 @@ Template.globeSubmit.events({
       $(event.target).find('[name=message]').val('');
       $(event.target).find('.char-count-js').text('115');
     });
+    template._component_.dom.remove();
   }
 });
 
 Template.globeSubmit.rendered = function() {
+  new FForm(this.find('#fs-form-wrap'), {ctrlNavPosition: false, onReview: function(){ $('.main').addClass('overview'); }});
   var nameLength;
   var msgLength = 140 - 'I see a world  - I #GSC14'.length;
   var area = this.find('textarea');
@@ -47,3 +49,7 @@ Template.globeSubmit.rendered = function() {
   }
   Countable.live(area, callback);
 };
+
+Template.globeSubmit.destroyed = function() {
+  Router.go("thankYou");
+}

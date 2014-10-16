@@ -98,6 +98,7 @@ a:hover, a:focus {
 .grid li img {
   display: block;
   outline: none;
+  width:300px;
   /*border: none;*/
 }
 

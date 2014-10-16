@@ -5,7 +5,7 @@ svg{
 }
 .halfcircle{
   position: relative;
-  top: -3.55em;
+  top: -4.75em;
   right: -8em;
   height: 276.5px;
   width: 553px;
@@ -23,37 +23,37 @@ svg{
 }
 
 .txt_cloud_action{
-  font-family: "omnes-pro", sans-serif;
-  font-size: 3em;
-  font-weight: 500;
-  text-align: center;
-  color: #fff;
-  background: #00ADEF;
-  padding: 0px 10px;
-  left: 26%;
-  position: absolute;
-  top: 1.6em;
-  transform: rotate(-3.5deg);
-  -webkit-transform: rotate(-7.5deg);
-  -moz-transform:rotate(-3.5deg);
-  z-index: 2;
+font-family: "omnes-pro", sans-serif;
+font-size: 3em;
+font-weight: 500;
+text-align: center;
+color: #fff;
+background: #00ADEF;
+padding: 5px 10px;
+left: 26%;
+position: absolute;
+top: 1.5em;
+transform: rotate(-3.5deg);
+-webkit-transform: rotate(-3.5deg);
+-moz-transform: rotate(-3.5deg);
+z-index: 2;
 }
 
-.txt_cloud_girls{
-  font-family: "omnes-pro", sans-serif;
-  font-size: 3em;
-  font-weight: 500;
-  text-align: center;
-  color: white;
-  background: #00AE59;
-  padding: 0px 10px;
-  left: 28.25%;
-  position: absolute;
-  top: 2.8em;
-  transform: rotate(-2deg);
-  -webkit-transform: rotate(-2deg);
-  -moz-transform:rotate(-2deg);
-  z-index: 1;
+.txt_cloud_girls {
+font-family: "omnes-pro", sans-serif;
+font-size: 3em;
+font-weight: 500;
+text-align: center;
+color: white;
+background: #00AE59;
+padding: 5px 10px;
+left: 31.25%;
+position: absolute;
+top: 2.8em;
+transform: rotate(-2deg);
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+z-index: 1;
 }
 
 .txt_cloud_girls.child{
@@ -69,7 +69,7 @@ svg{
   margin-left: 1.3em;
   margin-top: 3em;
   width: 12em;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 500;
   color: #1D4499;
   line-height: 115%;
@@ -77,7 +77,7 @@ svg{
 
 .cld_hdr_txt.child {
   margin-top: 4.5em;
-  font-size: 1.6em;
+  font-size: 2.2em;
   margin-left: 0.6em;
 }
 

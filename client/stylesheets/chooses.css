@@ -56,6 +56,16 @@ z-index: 100;
   width:80%;
 }
 
+input[type=checkbox] {  
+    display: none;  
+} 
+
+/*input[type=checkbox]:after {  
+    display: none;  
+    background-color: #00ae58;
+    border:2px #f286b6;
+}*/
+
 .js-children{
   display:inline-block;
   padding: 0.6em 1.5em;
@@ -70,6 +80,9 @@ z-index: 100;
   margin:10px;
   color:#00ae58;
   text-align: center;
+}
+.js-children li{
+  list-style: none;
 }
 
 .js-adults{
@@ -97,3 +110,8 @@ z-index: 100;
   color:#00adef;
   font-weight: 600;
 }
+
+.js-children:after{
+  background-color: #00ae58;
+    border:2px #f286b6;
+  }

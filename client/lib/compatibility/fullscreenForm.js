@@ -187,6 +187,10 @@
       self._nextField();
     } );
 
+    $('.fs-words').on('click', function(ev){ 
+      console.log(ev.target);
+    });
+
     // keyboard navigation events - jump to next field when pressing enter
     document.addEventListener( 'keydown', function( ev ) {
       var keyCode = ev.keyCode || ev.which;

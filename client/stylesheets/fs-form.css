@@ -86,7 +86,7 @@ elements will become absolute */
 button.fs-continue,
 .fs-message-error,
 .fs-message-final 
-.fs-words{
+{
     visibility: hidden;
 }
 

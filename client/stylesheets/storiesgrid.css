@@ -47,7 +47,7 @@ a:hover, a:focus {
 }
 
 .grid {
-  background: url(stories/loading.gif) no-repeat 50% 100px;
+  background: url(https://d3tbjvpzzk3rum.cloudfront.net/stories/loading.gif) no-repeat 50% 100px;
 }
 
 .grid.loaded {
@@ -58,6 +58,7 @@ a:hover, a:focus {
   display: inline-block;
   overflow: hidden;
   width: 314px;
+  height: 474px;
   text-align: left;
   vertical-align: top;
 }

@@ -73,6 +73,7 @@ Template.grid.rendered = function() {
     this.items = [];
     this.options = _.extend({}, this.options);
     _.extend(this.options, options);
+    // this._init();
   };
 
   GridScrollFx.prototype.options = {
@@ -93,49 +94,41 @@ Template.grid.rendered = function() {
     this.items = items;
     this.didScroll = false;
 
-    self.$container.imagesLoaded().always(function(instance) {
-      // show grid
-      self.$container.addClass('loaded');
+    // show grid
+    self.$container.addClass('loaded');
 
-      // initialize mansonry
-      self.$container.masonry({
-        itemSelector: 'li',
-        isFitWidth: true,
-        transitionDuration: 0
-      });
-
-      // add curtain effect to all items
-      _.forEach(self.items, function(item) {
-        if (!item.image[0]) return;
-        if(inViewport(item.el))
-          item.el.addClass('shown');
-        item.addCurtain();
-        item.changeAnimationDelay(Math.random() * (self.options.maxDelay -
-                                                   self.options.minDelay) +
-                                                   self.options.minDelay);
-      });
-
-      // Define what to do when the user scrolls the page
-      var onScrollFn = function() {
-        if (!self.didScroll) {
-          self.didScroll = true;
-          setTimeout( function() { self._scrollPage(); }, 200 );
-        }
-      };
-
-      // animate the items inside the viewport (on scroll)
-      window.addEventListener('scroll', onScrollFn, false);
-
-      // Check if new items are in viewport after resize
-      window.addEventListener('resize', function() { self._resizeHandler(); },
-                             false);
-    })
-    .done(function(instance) {console.log("all images successfully loaded");})
-    .fail(function(instance) {console.log("all images loaded, at least one is broken");})
-    .progress(function(instance, image) {
-      var result = image.isLoaded ? 'loaded' : 'broken';
-      console.log('image is ' + result + ' for ' + image.img.src);
+    // initialize mansonry
+    self.$container.masonry({
+      itemSelector: 'li',
+      isFitWidth: true,
+      transitionDuration: 0
     });
+
+    // add curtain effect to all items
+    _.forEach(self.items, function(item) {
+      if (!item.image[0]) return;
+      if(inViewport(item.el))
+        item.el.addClass('shown');
+      item.addCurtain();
+      item.changeAnimationDelay(Math.random() * (self.options.maxDelay -
+                                                 self.options.minDelay) +
+                                                 self.options.minDelay);
+    });
+
+    // Define what to do when the user scrolls the page
+    var onScrollFn = function() {
+      if (!self.didScroll) {
+        self.didScroll = true;
+        setTimeout( function() { self._scrollPage(); }, 200 );
+      }
+    };
+
+    // animate the items inside the viewport (on scroll)
+    window.addEventListener('scroll', onScrollFn, false);
+
+    // Check if new items are in viewport after resize
+    window.addEventListener('resize', function() { self._resizeHandler(); },
+                            false);
   };
 
   GridScrollFx.prototype._scrollPage = function() {

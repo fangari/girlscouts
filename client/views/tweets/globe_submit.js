@@ -27,7 +27,8 @@ Template.globeSubmit.events({
 });
 
 Template.globeSubmit.rendered = function() {
-  fullform = new FForm(this.find('#fs-form-wrap'), {ctrlNavPosition: false, onReview: function(){ $('.main').addClass('overview'); }});
+  fullform = new FForm(this.find('#fs-form-wrap'),
+                       {ctrlNavPosition: false});
   fullform.render();
   var nameLength;
   var msgLength = 140 - 'I see a world  - I #GSC14'.length;
@@ -50,8 +51,4 @@ Template.globeSubmit.rendered = function() {
     counterSpan.innerHTML = msgLength - counter.all;
   }
   Countable.live(area, callback);
-};
-
-Template.globeSubmit.destroyed = function() {
-  Router.go("thankYou");
 };

@@ -13,62 +13,81 @@
   <div class="GSLogo">
     <img src="/stories/GS_ART_profiles_white.png" alt="logo"/>
   </div>
-  <header>
-    <h1>Make a Take Action Pledge</h1>
-    <p>
-      So many issues confront us in our community and around the world.
-      Sometimes the problems seem overwhelming.
-    </p>
-    <p>
-      Can girls really change that? Can you change the world?
-    </p>
-    <p>
-      You can. There are so many opportunities to make a difference.
-      And you can start today!
-    </p>
-  </header>
-  <form class="main" action="">
-    <div class="control-group">
-      <div class="control-label" for="words">Choose your issue</div>
-      <div class="controls">
-        {{#each words}}
-          {{> wordItem}}
-        {{/each}}
-      </div>
-    </div>
-    <div class="control-group">
-      <h3>Write your pledge</h3>
-      <p>
-        You've chosen a BIG issue. Now you've got to get real and commit to one
-        small step. You could ask a friend to team up with you, walk around your
-        community to identify issue-specific problems you could tackle, or
-        brainstorm a Take Action project with your troop. It's all up to you.
-      </p>
-      <div class="control-label" for="name">Name</div>
-      <div class="controls">
-        <input type="text" name="name" placeholder="What is your name?">
-      </div>
-      <div class="control-label" for="last_name">Last Name</div>
-      <div class="controls">
-        <input type="text" name="last_name" placeholder="What is your last name?">
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="control-label" for="message">Message</div>
-      <div class="controls">
-        <textarea type="text" name="message" cols="50" rows="3" placeholder="I pledge to&hellip;"></textarea>
-        <span class="char-count-js"></span>
-      </div>
-      <p>
-        Please don't include a twitter handle or other identifying information.
-        Your pledge will be reviewed before it is posted on our pledge wall and
-        to Twitter. Retweet your pledge and spread the word!
-      </p>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <input type="submit" value="Submit">
-      </div>
-    </div>
-  </form>
+<div id="fs-form-wrap" class="fs-form-wrap">
+    <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+      <ol class="fs-fields">
+        <li class="copy">
+          <div class="fs-anim-lower">
+            So many issues confront us in our community and around the
+            world. Sometimes the problems seem overwhelming.
+            <br>
+            Can girls really change that? Can you change the world?
+          </div>
+        </li>
+        <li class="copy">
+          <div class="fs-anim-lower">
+            You can. There are so many opportunities to make a difference.
+            And you can start today!
+          </div>
+        </li>
+        <li>
+          <label class="fs-field-label fs-anim-upper" for="words">
+            Choose your issue
+          </label>
+          <div class="fs-anim-lower">
+            {{#each words}}
+              {{> wordItem}}
+            {{/each}}
+          </div>
+        </li>
+        <li class="copy">
+          <div class="fs-anim-lower">
+            <h3>Write your pledge</h3>
+            You've chosen a BIG issue. Now you've got to get real
+            and commit to one
+            small step. You could ask a friend to team up with
+            you, walk around your
+            community to identify issue-specific problems
+            you could tackle, or
+            brainstorm a Take Action project with your
+            troop. It's all up to you.
+          </div>
+        </li>
+        <li>
+          <label class="fs-field-label fs-anim-upper" for="name">
+            What is your first name
+          </label>
+          <input id="q1" class="fs-anim-lower" type="text" name="name" placeholder="First name" />
+        </li>
+        <li>
+          <label class="fs-field-label fs-anim-upper" for="last_name">
+            What is your last name
+          </label>
+          <input id="q2" class="fs-anim-lower" type="text" name="last_name" placeholder="Last name"/>
+        </li>
+        <li>
+          <label class="fs-field-label fs-anim-upper" for="message">
+            Message
+          </label>
+          <span class="fs-field-label fs-anim-lower copy">I pledge to&hellip;</span>
+          <textarea id="q3" class="fs-anim-lower" name="message"></textarea>
+          <div class="clearfix char-helper">
+            <span class="fs-anim-lower char-count-js right"></span>
+          </div>
+          <div class="fs-anim-lower copy small">
+            Please don't include a Twitter handle or other identifying information.
+            All entries will be reviewed before they are projected onto the globe
+            and posted to Twitter. Search for #GSC14 and retweet to share your
+            vision!
+          </div>
+        </li>
+        <li>
+          <div class="fs-field-label fs-anim-upper copy">
+            <h4>Thanks for pledging to take action back at home!</h4>
+          </div>
+        </li>
+      </ol>
+      <button class="fs-submit" type="submit">Send your wish</button>
+    </form>
+  </div>
 </template>

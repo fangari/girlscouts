@@ -10,6 +10,9 @@
 .story-card .faces.flipped {
   -webkit-transform: rotatey(-180deg);
 }
+div.story-card > img{
+  max-width: 100%
+}
 .story-card .faces {
   width: 100%;
   height: 100%;

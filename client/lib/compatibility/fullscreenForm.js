@@ -186,11 +186,20 @@
     this.ctrlContinue.addEventListener( 'click', function() {
       self._nextField();
     } );
-
-    $('.fs-words').on('click', function(event){
+    var $_words = $('.fs-words');
+    $_words.on('click', function(event){
+      var limit = 5;
       var $checkbox = $(this).find('[type=checkbox]');
       $checkbox.prop("checked", !$checkbox.prop("checked"));
-      $(this).toggleClass("fs-checked", $checkbox.prop("checked"));
+      var _checked = $_words.parent().find(':checked').length;
+      if (_checked > limit) {
+        self._showError('TOOMANY');
+        $checkbox.prop("checked", !$checkbox.prop("checked"));
+      }
+      if(_checked <= limit) {
+        self._clearError();
+        $(this).toggleClass("fs-checked", $checkbox.prop("checked"));
+      }
       event.stopImmediatePropagation();
     });
 
@@ -434,6 +443,9 @@
       break;
       case 'INVALIDEMAIL' :
         message = 'Please fill a valid email address';
+      break;
+      case 'TOOMANY' :
+        message = 'Please choose maximum 5 words';
       break;
       // ...
     }

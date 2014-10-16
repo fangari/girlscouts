@@ -47,33 +47,6 @@
     max-width: 960px;
 }
 
-.fs-form-overview {
-    padding: 2.5em 30% 6em;
-    width: 100%;
-    height: 100%;
-    background: #fffed8;
-    color: #faa519;
-    font-size: 1.2em;
-}
-
-.fs-form-overview .fs-fields::before {
-    display: block;
-    margin-top: 3.5em;
-    margin-bottom: 1em;
-    color: #faa519;
-    content: 'Review & Submit';
-    font-weight: 700;
-    font-size: 2em;
-}
-
-.fs-form-overview .fs-fields::after {
-    display: block;
-    color: #faa519;
-    content: 'Thank you for this';
-    font-weight: 700;
-    font-size: 2em;
-}
-
 /* Switch view animation (we hide the current view,
  * switch the view class and show it again) */
 .fs-form.fs-show {
@@ -123,6 +96,7 @@ button.fs-continue,
 /* Some general styles */
 .fs-form-wrap button {
     border: none;
+    font-family: "omnes-pro";
     background: none;
 }
 
@@ -150,10 +124,6 @@ button.fs-continue,
     list-style: none;
 }
 
-.fs-form-overview ol {
-    max-width: 100%;
-}
-
 .fs-fields > li {
     position: relative;
     z-index: 1;
@@ -162,22 +132,9 @@ button.fs-continue,
     border: none;
 }
 
-.fs-fields > li:hover {
-    z-index: 999;
-}
-
 .fs-form-full .fs-fields > li {
     position: absolute;
     width: 100%;
-}
-
-.fs-form-overview .fs-fields > li {
-    margin: 1em 0 2em;
-    border-bottom: 2px solid rgba(0,0,0,0.1);
-}
-
-.fs-form-overview .fs-fields > li.copy {
-    display: none;
 }
 
 /* Labels & info */
@@ -264,11 +221,6 @@ button.fs-continue,
     box-shadow: none; /* removes red shadow in FF*/
 }
 
-.fs-form-overview .fs-fields input {
-    border-bottom-color: transparent;
-    /*color: rgba(0, 174, 88, 1);*/
-}
-
 .fs-fields [required] {
     background-image: url(../img/abacusstar.svg);
     background-position: top right;
@@ -278,14 +230,6 @@ button.fs-continue,
 
 .fs-fields input:focus {
     background-color: transparent; /* Fixes chrome bug with placeholder */
-}
-
-.fs-form-overview .fs-fields input:focus {
-    background-color: #fffed8; /* Fixes chrome bug with placeholder */
-}
-
-.fs-form-overview .fs-fields input {
-    font-size: 1.2em;
 }
 
 .fs-fields .fs-radio-custom input[type="radio"] {
@@ -316,14 +260,6 @@ button.fs-continue,
     color: rgba(0,0,0,0.4);
     -webkit-transition: color 0.3s;
     transition: color 0.3s;
-}
-
-.fs-form-overview .fs-fields > li .fs-radio-custom span {
-    max-width: 140px;
-}
-
-.fs-form-overview .fs-fields > li .fs-radio-custom span {
-    font-size: 75%;
 }
 
 .fs-fields > li .fs-radio-custom label {
@@ -361,10 +297,6 @@ button.fs-continue,
     color: #fffed8;
 }
 
-.fs-form-overview .fs-fields .fs-radio-custom input[type="radio"]:checked + label {
-    color: rgba(0,0,0,0.8);
-}
-
 .fs-fields textarea {
     padding: 0.25em;
     width: 100%;
@@ -377,19 +309,8 @@ button.fs-continue,
     resize: none;
 }
 
-.fs-form-overview .fs-fields textarea {
-    height: 80px;
-    color: rgba(0,0,0,0.5);
-    padding: 0;
-    border-color: transparent;
-}
-
 .fs-fields textarea:focus {
     outline: none;
-}
-
-.fs-form-overview .fs-fields textarea:focus {
-    background: #fffed8;
 }
 
 /* placeholder */
@@ -461,7 +382,6 @@ button.fs-continue,
     transform: perspective(1000px) rotate3d(0,1,0,180deg);
 }
 
-.fs-nav-dots button:hover::before,
 .fs-nav-dots button.fs-dot-current::before {
     background: #00ae58;
 }
@@ -581,21 +501,11 @@ button.fs-continue,
 /* Continue button and submit button */
 button.fs-submit,
 button.fs-continue {
-    padding: 0.6em 1.5em;
+    padding: 0.2em 1em;
     border: 3px solid #232529;
     border-radius: 40px;
     font-weight: 700;
     color: rgba(0,0,0,0.4);
-}
-
-.fs-form-overview .fs-submit {
-    display: block;
-    float: right;
-}
-
-.fs-form-overview .fs-submit {
-    border-color: #232529;
-    color: #232529;
 }
 
 button.fs-continue {
@@ -611,6 +521,15 @@ button.fs-submit:focus,
 button.fs-continue:hover {
     background: #232529;
     color: #fff;
+}
+
+button.fs-submit {
+    width: 45%;
+    font-size: 1em;
+    margin-top: 6em;
+    margin-left: 25%;
+    padding: 0;
+    font-weight: 500;
 }
 
 .fs-continue::after {
@@ -787,13 +706,6 @@ button.fs-continue:hover {
 	padding: 0 3.75em 0 1em;
 	width: auto;
 	font-size: 2em;
-    }
-
-    .fs-form.fs-form-overview {
-	top: 0;
-	right: 0;
-	padding: 1.5em 1em 8em 1em;
-	font-size: 1.5em;
     }
 
     .fs-title {

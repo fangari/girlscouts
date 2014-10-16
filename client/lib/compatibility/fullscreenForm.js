@@ -49,6 +49,7 @@
     this.options = _.extend({}, this.options);
     _.extend(this.options, options);
     this._init();
+    this._initEvents();
   }
 
   /**
@@ -71,22 +72,25 @@
    */
   FForm.prototype._init = function() {
     // the form element
-    this.formEl = this.el.querySelector( 'form' );
+    this.formEl = this.formEl || this.el.querySelector( 'form' );
 
     // list of fields
-    this.fieldsList = this.formEl.querySelector( 'ol.fs-fields' );
+    this.fieldsList = this.fieldsList || this.formEl.querySelector( 'ol.fs-fields' );
 
     // current field position
     this.current = 0;
 
     // all fields
-    this.fields = [].slice.call( this.fieldsList.children );
+    this.fields = this.fields || [].slice.call( this.fieldsList.children );
 
     // total fields
-    this.fieldsCount = this.fields.length;
+    this.fieldsCount = this.fieldsCount || this.fields.length;
 
     // show first field
     $(this.fields[this.current]).addClass('fs-current');
+
+    // hide submit button
+    $('.fs-submit').hide();
 
     // create/add controls
     this._addControls();
@@ -95,7 +99,7 @@
     this._addErrorMsg();
 
     // init events
-    this._initEvents();
+    // this._initEvents();
   };
 
   /**
@@ -104,58 +108,61 @@
    */
   FForm.prototype._addControls = function() {
     // main controls wrapper
-    this.ctrls = createElement('div',
-                               { cName : 'fs-controls', appendTo : this.el });
+    this.ctrls = this.ctrls || createElement('div',
+                                             { cName : 'fs-controls', appendTo : this.el });
 
-    // continue button (jump to next field)
-    this.ctrlContinue = createElement('button',
-                                      { cName : 'fs-continue',
-                                        inner : 'Continue',
-                                        appendTo : this.ctrls });
-    this._showCtrl( this.ctrlContinue );
+                                             // continue button (jump to next field)
+                                             this.ctrlContinue = this.ctrlContinue || createElement('button',
+                                                                                                    { cName : 'fs-continue',
+                                                                                                      inner : 'Continue',
+                                                                                                      appendTo : this.ctrls });
+                                                                                                      this._showCtrl( this.ctrlContinue );
 
-    // navigation dots
-    if( this.options.ctrlNavDots ) {
-      this.ctrlNav = createElement( 'nav',
-                                   { cName : 'fs-nav-dots',
-                                     appendTo : this.ctrls } );
-      var dots = '';
-      for( var i = 0; i < this.fieldsCount; ++i ) {
-        dots += i === this.current ?
-          '<button class="fs-dot-current"></button>' : '<button disabled></button>';
-      }
-      this.ctrlNav.innerHTML = dots;
-      this._showCtrl( this.ctrlNav );
-      this.ctrlNavDots = [].slice.call( this.ctrlNav.children );
-    }
+                                                                                                      // navigation dots
+                                                                                                      if( this.options.ctrlNavDots ) {
+                                                                                                        this.ctrlNav = this.ctrlNav || createElement( 'nav',
+                                                                                                                                                       { cName : 'fs-nav-dots',
+                                                                                                                                                         appendTo : this.ctrls } );
+                                                                                                                                                         if(this.ctrlNavDots === void(0)) {
+                                                                                                                                                           var dots = '';
+                                                                                                                                                           for( var i = 0; i < this.fieldsCount; ++i ) {
+                                                                                                                                                             dots += i === this.current ?
+                                                                                                                                                               '<button class="fs-dot-current"></button>' : '<button disabled></button>';
+                                                                                                                                                           }
+                                                                                                                                                           this.ctrlNav.innerHTML = dots;
+                                                                                                                                                           this._showCtrl( this.ctrlNav );
+                                                                                                                                                         }
+                                                                                                                                                         this.ctrlNavDots = this.ctrlNavDots || [].slice.call( this.ctrlNav.children );
+                                                                                                                                                         this._updateNav();
+                                                                                                      }
 
-    // field number status
-    if( this.options.ctrlNavPosition ) {
-      this.ctrlFldStatus = createElement( 'span',
-                                         { cName : 'fs-numbers',
-                                           appendTo : this.ctrls } );
+                                                                                                      // field number status
+                                                                                                      if( this.options.ctrlNavPosition ) {
+                                                                                                        this.ctrlFldStatus = this.ctrlFldStatus || createElement( 'span',
+                                                                                                                                                                     { cName : 'fs-numbers',
+                                                                                                                                                                       appendTo : this.ctrls } );
 
-      // current field placeholder
-      this.ctrlFldStatusCurr = createElement( 'span',
-                                             { cName : 'fs-number-current',
-                                               inner : Number( this.current + 1 ) } );
-      this.ctrlFldStatus.appendChild( this.ctrlFldStatusCurr );
+                                                                                                                                                                       // current field placeholder
+                                                                                                                                                                       this.ctrlFldStatusCurr = this.ctrlFldStatusCurr || createElement( 'span',
+                                                                                                                                                                                                                                        { cName : 'fs-number-current',
+                                                                                                                                                                                                                                          inner : Number( this.current + 1 ) } );
+                                                                                                                                                                                                                                          this.ctrlFldStatus.appendChild( this.ctrlFldStatusCurr );
 
-      // total fields placeholder
-      this.ctrlFldStatusTotal = createElement( 'span',
-                                              { cName : 'fs-number-total',
-                                                inner : this.fieldsCount } );
-      this.ctrlFldStatus.appendChild( this.ctrlFldStatusTotal );
-      this._showCtrl( this.ctrlFldStatus );
-    }
+                                                                                                                                                                                                                                          // total fields placeholder
+                                                                                                                                                                                                                                          this.ctrlFldStatusTotal = createElement( 'span',
+                                                                                                                                                                                                                                                                                          { cName : 'fs-number-total',
+                                                                                                                                                                                                                                                                                            inner : this.fieldsCount } );
+                                                                                                                                                                                                                                                                                            this.ctrlFldStatus.appendChild( this.ctrlFldStatusTotal );
+                                                                                                                                                                                                                                                                                            this._showCtrl( this.ctrlFldStatus );
+                                                                                                      }
 
-    // progress bar
-    if( this.options.ctrlProgress ) {
-      this.ctrlProgress = createElement( 'div',
-                                        { cName : 'fs-progress',
-                                          appendTo : this.ctrls } );
-      this._showCtrl( this.ctrlProgress );
-    }
+                                                                                                      // progress bar
+                                                                                                      if( this.options.ctrlProgress ) {
+                                                                                                        this.ctrlProgress = this.ctrlProgress || createElement( 'div',
+                                                                                                                                                                    { cName : 'fs-progress',
+                                                                                                                                                                      appendTo : this.ctrls } );
+                                                                                                                                                                      this._showCtrl( this.ctrlProgress );
+                                                                                                      }
   };
 
   /**
@@ -180,41 +187,10 @@
       self._nextField();
     } );
 
-    // navigation dots
-    if( this.options.ctrlNavDots ) {
-      this.ctrlNavDots.forEach( function( dot, pos ) {
-        dot.addEventListener( 'click', function() {
-          self._showField( pos );
-        } );
-      } );
-    }
-
-    // jump to next field without clicking the continue button
-    // (for fields/list items with the attribute "data-input-trigger")
-    this.fields.forEach( function( fld ) {
-      if( fld.hasAttribute( 'data-input-trigger' ) ) {
-        var input = fld.querySelector( 'input[type="radio"]' ) ||
-                    fld.querySelector( 'select' );
-        if( !input ) return;
-
-        switch( input.tagName.toLowerCase() ) {
-          case 'select' :
-            input.addEventListener('change', function() { self._nextField(); });
-          break;
-
-          case 'input' :
-            [].slice.call(fld.querySelectorAll('input[type="radio"]' ) ).forEach( function( inp ) {
-            inp.addEventListener('change', function(ev) { self._nextField(); });
-          } );
-          break;
-        }
-      }
-    } );
-
     // keyboard navigation events - jump to next field when pressing enter
     document.addEventListener( 'keydown', function( ev ) {
-      if (!self.isLastStep && ev.target.tagName.toLowerCase() !== 'textarea') {
-        var keyCode = ev.keyCode || ev.which;
+      var keyCode = ev.keyCode || ev.which;
+      if (!self._isLastStep() && ev.target.tagName.toLowerCase() !== 'textarea') {
         if (keyCode === 13) {
           ev.preventDefault();
           self._nextField();
@@ -235,7 +211,7 @@
 
     // check if on last step
     this.isLastStep = this.current === this.fieldsCount - 1 &&
-                      backto === undefined ? true : false;
+      backto === undefined ? true : false;
 
     // clear any previous error messages
     this._clearError();
@@ -285,17 +261,9 @@
       $(self.fieldsList).removeClass('fs-display-'+self.navdir);
       $(currentFld).removeClass('fs-hide');
 
-      if (self.isLastStep) {
-        // show the complete form and hide the controls
-        self._hideCtrl( self.ctrlNav );
-        self._hideCtrl( self.ctrlProgress );
+      if (self._isLastStep()) {
         self._hideCtrl( self.ctrlContinue );
-        self._hideCtrl( self.ctrlFldStatus );
-        // replace class fs-form-full with fs-form-overview
-        $(self.formEl).removeClass('fs-form-full')
-          .addClass('fs-form-overview fs-show');
-        // callback
-        self.options.onReview();
+        $('.fs-submit').fadeIn();
       }
       else {
         $(nextField).removeClass('fs-show');
@@ -309,23 +277,23 @@
       self.isAnimating = false;
     };
 
-      if( this.navdir === 'next' ) {
-        if( this.isLastStep ) {
-          PrefixedEvent(
-            currentFld.querySelector('.fs-anim-upper'),
-            'AnimationEnd', onEndAnimationFn);
-        }
-        else {
-          PrefixedEvent(
-            nextField.querySelector('.fs-anim-lower'),
-            'AnimationEnd', onEndAnimationFn );
-        }
+    if( this.navdir === 'next' ) {
+      if( this._isLastStep()) {
+        PrefixedEvent(
+          currentFld.querySelector('.fs-anim-upper'),
+          'AnimationEnd', onEndAnimationFn);
       }
       else {
         PrefixedEvent(
-          nextField.querySelector('.fs-anim-upper'),
-          'AnimationEnd', onEndAnimationFn);
+          nextField.querySelector('.fs-anim-lower'),
+          'AnimationEnd', onEndAnimationFn );
       }
+    }
+    else {
+      PrefixedEvent(
+        nextField.querySelector('.fs-anim-upper'),
+        'AnimationEnd', onEndAnimationFn);
+    }
   };
 
   /**
@@ -403,9 +371,9 @@
   FForm.prototype._validade = function() {
     var fld = this.fields[ this.current ],
     input = fld.querySelector( 'input[required]' )    ||
-            fld.querySelector( 'textarea[required]' ) ||
-            fld.querySelector( 'select[required]' ),
-            error;
+      fld.querySelector( 'textarea[required]' ) ||
+      fld.querySelector( 'select[required]' ),
+    error;
 
     if( !input ) return true;
 
@@ -470,6 +438,22 @@
     this._hideCtrl( this.msgError );
   };
 
+  // Checks if the field is the last field before submit
+  FForm.prototype._isLastStep = function() {
+    return this.current === this.fieldsCount - 1;
+  };
+
+  FForm.prototype.render = function() {
+    var self = this;
+    self._init();
+    self._initEvents();
+  };
+
+  FForm.prototype.reset = function() {
+    var self = this;
+    $(this.fields).removeClass('fs-current fs-show');
+    self._init();
+  };
   // add to global namespace
   window.FForm = FForm;
 

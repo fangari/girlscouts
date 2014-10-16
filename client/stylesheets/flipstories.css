@@ -80,14 +80,3 @@
   text-align: center;
   margin-top: 10px;
 }
-
-.backLogo img {
-  position:absolute;
-  bottom:120px;
-  width: 60px; /* the width of the logo image */
-  height: 58px;  /*the height of the logo image*/
-  margin:20px;
-  float:left;
-  vertical-align: middle;
-  left:10px;
-}

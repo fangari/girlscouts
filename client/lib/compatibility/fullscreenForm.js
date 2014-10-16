@@ -109,7 +109,7 @@
   FForm.prototype._addControls = function() {
     // main controls wrapper
     this.ctrls = this.ctrls || createElement('div',
-                                             { cName : 'fs-controls', appendTo : this.el });
+                  { cName : 'fs-controls', appendTo : this.el });
 
                                              // continue button (jump to next field)
                                              this.ctrlContinue = this.ctrlContinue || createElement('button',
@@ -187,9 +187,13 @@
       self._nextField();
     } );
 
-    $('.fs-words').on('click', function(ev){ 
-      console.log(ev.target);
+    $('.fs-words').on('click', function(event){
+      var $checkbox = $(this).find('[type=checkbox]');
+      $checkbox.prop("checked", !$checkbox.prop("checked"));
+      $(this).toggleClass("fs-checked", $checkbox.prop("checked"));
+      event.stopImmediatePropagation();
     });
+
 
     // keyboard navigation events - jump to next field when pressing enter
     document.addEventListener( 'keydown', function( ev ) {

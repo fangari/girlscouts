@@ -1,6 +1,6 @@
 var pledgeFSForm;
 Template.pledgeSubmit.events({
-  'submit form': function(event, template) {
+  'submit form': function(event) {
     event.preventDefault();
     var initials = $.parseHTML("&mdash;")[0].textContent +
       $(event.target).find('[name=name]').val() + ' ' +

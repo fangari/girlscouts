@@ -6,12 +6,12 @@
   background: url("../stories/Girltopia_hed.png") repeat-x 0 0;
 }
 
-#globe_logo{  
+#globe_logo{
 position:relative;
 float: right;
 top:-8.75em;
 right:6.5em;
-width:8em; 
+width:8em;
 z-index:5;
 /*left:70%;*/
 }

@@ -56,12 +56,12 @@ z-index: 100;
   width:80%;
 }
 
-input[type=checkbox] {  
-    display: none;  
-} 
+input[type=checkbox] {
+    display: none;
+}
 
-/*input[type=checkbox]:after {  
-    display: none;  
+/*input[type=checkbox]:after {
+    display: none;
     background-color: #00ae58;
     border:2px #f286b6;
 }*/

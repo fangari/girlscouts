@@ -26,7 +26,7 @@ div#TN_header img{
   position:fixed;
   top: .15em;
   width: 4em; /* the width of the logo image */
-  height: 4em;  /*the height of the logo image*/
+  height: 4em;/*the height of the logo image*/
   margin: 5px;
   float:left;
   vertical-align: middle;
@@ -38,7 +38,7 @@ div#TN_header img{
   position:fixed;
   top:10px;
   width: 90px; /* the width of the logo image */
-  height: 92px;  /*the height of the logo image*/
+  height: 92px;/*the height of the logo image*/
   margin:20px;
   float:left;
   vertical-align: middle;

@@ -1,5 +1,6 @@
+var pledgeFSForm;
 Template.pledgeSubmit.events({
-  'submit form': function(event) {
+  'submit form': function(event, template) {
     event.preventDefault();
     var initials = $.parseHTML("&mdash;")[0].textContent +
       $(event.target).find('[name=name]').val() + ' ' +
@@ -25,17 +26,15 @@ Template.pledgeSubmit.events({
       $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
       $(event.target).find('.char-count-js').text('129');
-    });
-
-    Meteor.call('submitToWordCloud', wordArray, function(error, id) {
-      if (error)
-        return alert(error.reason);
-      $(event.target).find('[name=words]').prop("checked", false);
+      pledgeFSForm.reset();
     });
   }
 });
 
 Template.pledgeSubmit.rendered = function() {
+  pledgeFSForm = new FForm(this.find('#fs-form-wrap'),
+                       {ctrlNavPosition: false});
+  pledgeFSForm.render();
   var nameLength;
   var msgLength = 140 - 'I pledge to  - I #GSC14'.length;
   var area = this.find('textarea');
@@ -57,5 +56,4 @@ Template.pledgeSubmit.rendered = function() {
     counterSpan.innerHTML = msgLength - counter.all;
   }
   Countable.live(area, callback);
-  new FForm(this.find('#fs-form-wrap'));
 };

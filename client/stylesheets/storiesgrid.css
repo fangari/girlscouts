@@ -14,6 +14,7 @@ body {
   font-weight: 200;
   background-color:rgb(234,244,234);
   margin: 0px;
+  overflow: hidden;
 }
 
 h1{
@@ -98,6 +99,7 @@ a:hover, a:focus {
 .grid li img {
   display: block;
   outline: none;
+  width:300px;
   /*border: none;*/
 }
 

@@ -1,6 +1,6 @@
 <template name="messageItem">
   <div class="message">
-    <div class="date"><img src="stories/date_dot.png" class="date_dot">{{moments created_at}}</div>
+    <div class="date"><img src="../stories/date_dot.png" class="date_dot">{{moments created_at}}</div>
     <div class = 'summary'>
       {{text}}
     </div>
@@ -11,7 +11,7 @@
     </div>
     <div class="actions">
       {{#unless isAccepted}}
-        <button class='accept' type="button"><img src="/stories/accept_button.png"/></button>
+        <button class='accept' type="button">&check;</button>
       {{/unless}}
       <button class='reject' type="button">X</button>
     </div>

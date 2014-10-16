@@ -1,3 +1,8 @@
+
+svg{
+
+   background-color:rgb(234,244,234);
+}
 .halfcircle{
   position: relative;
   top: -3.55em;
@@ -24,13 +29,13 @@
   text-align: center;
   color: #fff;
   background: #00ADEF;
-  padding: 5px 20px;
+  padding: 5px 10px;
   left: 26%;
   position: absolute;
-  top: 2em;
-  transform: rotate(-7deg);
-  -webkit-transform: rotate(-7deg);
-  -moz-transform:rotate(-7deg);
+  top: 1em;
+  transform: rotate(-3.5deg);
+  -webkit-transform: rotate(-3.5deg);
+  -moz-transform:rotate(-3.5deg);
   z-index: 2;
 }
 
@@ -41,10 +46,10 @@
   text-align: center;
   color: white;
   background: #00AE59;
-  padding: 5px 20px;
-  left: 36.25%;
+  padding: 5px 10px;
+  left: 28.25%;
   position: absolute;
-  top: 3.3em;
+  top: 2.3em;
   transform: rotate(-2deg);
   -webkit-transform: rotate(-2deg);
   -moz-transform:rotate(-2deg);

@@ -19,3 +19,13 @@ z-index:5;
 #globe_logo img{
 width:7em;
 }
+
+#gds_copy{
+font-size: .85em;
+color:rgba(0,0,0,0.3);
+width: 75%;
+left: -5%;
+text-align: left;
+/*line-height: 125%;*/
+margin-top: -1.5em;
+}

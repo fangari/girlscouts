@@ -58,6 +58,7 @@ Template.globeDisplay.rendered = function() {
         messageDisplay.set(msg.text);
         msg.viewCount = minPriority + 1;
         displayQueue.enqueue(msg);
+        undisplayedStat = true;
       } else {
         if ( undisplayedStat ) {
           messageDisplay.set(getRandomStat());

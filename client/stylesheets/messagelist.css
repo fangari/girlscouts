@@ -3,15 +3,20 @@ h2.u_list {
   font-weight: 400;
   margin-left: 2em;
 }
+.message_section{
+position: relative;
+padding-bottom: 4em;
+border-left: thin solid #00ae58;
+left: 9%;
+width:90%;
+}
 
 .message {
-  width: 80%;
+  width: 90%;
   display: block;
   position: relative;
-  margin: 0 auto;
   font-family:'Roboto', sans-serif;
   font-weight: 200;
-  border-left: thin solid #00ae58;
 }
 
 .actions {
@@ -58,9 +63,9 @@ h2.u_list {
 
 .date_dot {
   position: relative;
-  left: -1.15em;
+  left: -1.3em;
   width: .75em;
-  margin-right: 1.3em;
+  margin-right: 1.5em;
   margin-top:.3em;
   image-rendering: -moz-crisp-edges;         /* Firefox */
   image-rendering:   -o-crisp-edges;         /* Opera */
@@ -75,7 +80,7 @@ h2.u_list {
   font-size:1em;
   line-height: 200%;
   width:100%;
-  margin:25px 0 10px 12px;
+  margin:25px 0 10px 15px;
   padding-top: 10px;
 }
 
@@ -89,7 +94,7 @@ h2.u_list {
   color:rgb(51,51,51);
   text-align:left;
   width: 63%;
-  height:80px;
+  height:60px;
   display:inline-block;
   word-wrap: break-word;
 }
@@ -113,7 +118,7 @@ p.message_name {
   font-family: "omnes-pro";
   font-size: 1.1em;
   line-height: 136%;
-  width: 70%;
+  width: 90%;
   color: rgb(51,51,51);
   text-align: left;
   padding: 0 0 10px 5px;
@@ -148,6 +153,37 @@ p.message_name {
   word-wrap: break-word;
 }
 
-#login-buttons {
-  margin-top: 12%;
+#login-buttons{
+  margin-top: -15%;
+  float:right;
+  margin-right:1.2em;
+  height:35px;
+  width:120px;
+  border-radius: 40px;
+  border: 2px solid rgba(0,0,0,.4); 
+  background: #232529;
+  padding: 0.1em 1.45em;
+  z-index: 1; 
+  text-decoration: none;
+}
+#login-buttons a{
+text-align: center;
+vertical-align: middle;
+font-weight: 400;
+font-size: 1.5em;
+height:35px;
+width:130px;
+text-decoration: none;
+}
+
+#login-buttons:hover {
+    background: transparent;
+}
+
+#login-buttons a:hover{
+  font-weight: 500;
+}
+
+.feed{
+  margin-top: 20em;
 }

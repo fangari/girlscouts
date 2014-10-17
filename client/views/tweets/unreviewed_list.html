@@ -22,7 +22,7 @@
     </header>
     {{#if currentUser}}
       {{#each messages}}
-        {{> messageItem}}
+       <section class="message_section"> {{> messageItem}} </section>
       {{/each}}
 
       {{#if nextPath}}

@@ -1,26 +1,22 @@
 .story-card {
   -webkit-perspective: 800;
-  width: 83%;
-  height:83%;
   position: relative;
   margin: 3px;
   float:left;
   display: none;
 }
+
 .story-card .faces.flipped {
   -webkit-transform: rotatey(-180deg);
 }
+
 .story-card .faces {
-  /*width: 83%;*/
-  /*height: 83%;*/
   -webkit-transform-style: preserve-3d;
   -webkit-transition: 2.5s;
 }
-.faces{
-}
+
 .story-card .faces .face {
-  position: absolute;
-  -webkit-backface-visibility: hidden ; /**/
+  -webkit-backface-visibility: hidden;
   z-index: 2;
   font-family: "omnes-pro";
   font-weight:400;
@@ -28,20 +24,29 @@
   text-align: center;
   line-height: 200px;
 }
+
 .story-card .faces .front {
   position: absolute;
   z-index: 1;
   cursor: pointer;
 }
+
 .story-card .faces .back {
   -webkit-transform: rotatey(-180deg);
 }
+
+.face > img {
+  margin-top: 4%;
+  width: 96%;
+}
+
 .call-animation-js {
   display: none;
   background: -webkit-radial-gradient(rgb(0,230,0), rgb(0,100,0));
   background: -moz-radial-gradient(rgb(0,230,0), rgb(0,100,0));
   background: radial-gradient(rgb(0,230,0), rgb(0,100,0));
 }
+
 #call-to-action-canvas {
   position: absolute;
   width:100%;
@@ -51,6 +56,7 @@
   right: 0;
   z-index: -1;
 }
+
 .text-box {
   background: rgba(0,0,0,0.1);
   height: 100px;
@@ -58,6 +64,7 @@
   top: 55%;
   left: 50%;
 }
+
 .text-box > p {
   color: #FFF;
   font-weight: bold;

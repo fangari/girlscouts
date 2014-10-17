@@ -1,7 +1,7 @@
 <template name="pledgeSubmit">
   <div class="wrapperHeader">
     <div id="TN_header">
-      <img src="../stories/blue_dot_header.png" alt="logo"/>
+      <img src="https://d3tbjvpzzk3rum.cloudfront.net/stories/blue_dot_header.png" alt="logo"/>
     </div>
     <div class="txt_cloud_action">
       Take Action and
@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="GSLogo">
-    <img src="../stories/GS_ART_profiles_white.png" alt="logo"/>
+    <img src="https://d3tbjvpzzk3rum.cloudfront.net/stories/GS_ART_profiles_white.png" alt="logo"/>
   </div>
   <div id="fs-form-wrap" class="fs-form-wrap">
     <form id="myform" class="fs-form fs-form-full" autocomplete="off">
@@ -48,20 +48,22 @@
           <label class="fs-field-label fs-anim-upper" for="name">
             What is your first name
           </label>
-          <input id="q1" class="fs-anim-lower" type="text" name="name" placeholder="First name" />
+          <input id="q1" class="fs-anim-lower" type="text" name="name"
+          placeholder="First name" required/>
         </li>
         <li>
           <label class="fs-field-label fs-anim-upper" for="last_name">
             What is your last name
           </label>
-          <input id="q2" class="fs-anim-lower" type="text" name="last_name" placeholder="Last name"/>
+          <input id="q2" class="fs-anim-lower" type="text" name="last_name"
+          placeholder="Last name" required/>
         </li>
         <li>
           <label class="fs-field-label fs-anim-upper" for="message">
             Message:
           </label>
           <span class="fs-field-label fs-anim-lower pledge2" id="gds_copy">I pledge to&hellip;</span>
-          <textarea id="q3" class="fs-anim-lower" name="message"></textarea>
+          <textarea id="q3" class="fs-anim-lower" name="message" required></textarea>
           <div class="clearfix char-helper">
             <span class="fs-anim-lower char-count-js right"></span>
           </div>

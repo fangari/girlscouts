@@ -162,10 +162,10 @@ p.message_name {
   height:35px;
   width:120px;
   border-radius: 40px;
-  border: 2px solid rgba(0,0,0,.4); 
+  border: 2px solid rgba(0,0,0,.4);
   background: #232529;
   padding: 0.1em 1.45em;
-  z-index: 1; 
+  z-index: 1;
   text-decoration: none;
 }
 #login-buttons a{

@@ -21,10 +21,13 @@ Template.story.rendered = function() {
 
   var callToActionAnimationId;
   var storiesQueue = new buckets.Queue();
+  var processingQueue = false;
+  Session.set('emptyQueue', true);
 
   Stories.find().observeChanges({
     changed: function(id, fields) {
       storiesQueue.add(id);
+      Session.set('emptyQueue', false);
     }
   });
 
@@ -35,17 +38,39 @@ Template.story.rendered = function() {
     card.children('.faces').toggleClass('flipped');
   };
 
-  var animateStory = function(window, time) {
+  var animateStory = function() {
+    var animating = true;
     var $card = $(".story-card");
-    $card.fadeIn(2000);
-    Meteor.setTimeout(function() {
+    //show the front face
+    $card.fadeIn(1000);
+    setTimeout(function() {
+      //show back face
       flipit($card);
     }, 3000);
-    Meteor.setTimeout(function() {
+    setTimeout(function() {
+      //show the front face again
       flipit($card);
-    }, 9000);
-    $card.delay(6000).fadeOut(2000);
+      animating = false;
+      return animating;
+    }, 7000);
+    //hide the story
+    $card.delay(6000).fadeOut(1000);
   };
+
+  function processQueue() {
+    var timeout;
+    if( !storiesQueue.isEmpty() ) {
+      processingQueue = true;
+      storyAnimation.set(storiesQueue.dequeue());
+      animateStory(processingQueue);
+    } else {
+      clearTimeout(timeout);
+      processingQueue = false;
+      Session.set("emptyQueue", true);
+      location.reload();
+    }
+    timeout = setTimeout(processQueue, 9500);
+  }
 
   var animateCallToAction = function(win, time) {
     var canvas,
@@ -134,13 +159,13 @@ Template.story.rendered = function() {
        */
       var pulse = function() {
         var word = 'Our Story.';
-        if(Date.now() - lastWord > 2875 &&
-           Date.now() - lastWord < 5750)
+        if(Date.now() - time > 2875 &&
+           Date.now() - time < 5750)
           word = 'Your Story';
-        if(Date.now() - lastWord > 5750 &&
-           Date.now() - lastWord < 8625)
+        if(Date.now() - time > 5750 &&
+           Date.now() - time < 8625)
           word = 'Her Story';
-        if(Date.now() - lastWord > 8625)
+        if(Date.now() - time > 8625)
           word = 'My Story.';
         box.innerHTML = '<p>' + word + '</p>';
         clear();
@@ -227,9 +252,6 @@ Template.story.rendered = function() {
                                                 4 * Math.cos(3 * index) -
                                                 Math.sin(4 * index) -
                                                 4 * Math.cos(5 * index)));
-
-          // particle.goalX = center.x + 180 * Math.pow(Math.sin(steps) + (2 * (Math.sin(2*steps))),3);
-          // particle.goalY = center.y + Math.cos(steps) - (2 * (Math.sin(2*index)));
           }
 
           // Random
@@ -339,19 +361,19 @@ Template.story.rendered = function() {
       init();
   };
 
-  (function animate() {
+  Tracker.autorun(function() {
     var animationDiv = $('.call-animation-js');
-    if(!storiesQueue.isEmpty()) {
-      cancelAnimationFrame(callToActionAnimationId);
-      animationDiv.fadeOut(100);
-      storyAnimation.set(storiesQueue.dequeue());
-      animateStory();
+    if(Session.equals("emptyQueue", false)) {
+      if(!processingQueue) {
+        cancelAnimationFrame(callToActionAnimationId);
+        animationDiv.fadeOut(100);
+        processQueue();
+      }
     } else {
       cancelAnimationFrame(callToActionAnimationId);
       if(animationDiv.css('display') === 'none')
         animationDiv.fadeIn(100);
       animateCallToAction(window, Date.now());
     }
-    setTimeout(animate, 11500);
-  })();
+  });
 };

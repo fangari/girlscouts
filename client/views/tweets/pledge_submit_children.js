@@ -28,6 +28,12 @@ Template.pledgeSubmitChildren.events({
       $(event.target).find('.char-count-js').text('129');
       pledgeFSForm.reset();
     });
+
+    Meteor.call('submitToWordCloud', wordArray, function(error, id) {
+      if (error)
+        return alert(error.reason);
+      $(event.target).find('[name=words]').prop("checked", false);
+    });
   }
 });
 

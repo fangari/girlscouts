@@ -21,11 +21,11 @@ width:90%;
 
 .actions {
   position:relative;
-  top:-0.9em;
+  top:.1em;
   float:right;
   width:20%;
   vertical-align:middle;
-  margin-right: 14em;
+  margin-right: 2em;
 }
 
 .accept {
@@ -46,9 +46,10 @@ width:90%;
   background-repeat: no-repeat;
   background-position: 14px 12px;
   border: 1px #d3d3d3;
-  background-color: #fff;
-  color: #d3d3d3;
-  font-size: 1em;
+  background-color: red;
+  color: #fff;
+  font-size: 1.3em;
+  font-weight: 500;
 }
 
 .reject {
@@ -106,7 +107,8 @@ width:90%;
 }
 
 .reject:hover {
-  background-color:red;
+  background-color: #fff;
+  color: red;
 }
 
 .submitted_name {

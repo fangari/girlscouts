@@ -1,6 +1,6 @@
 .story-card {
   -webkit-perspective: 800;
-  width: 83%%;
+  width: 83%;
   height:83%;
   position: relative;
   margin: 3px;
@@ -10,22 +10,15 @@
 .story-card .faces.flipped {
   -webkit-transform: rotatey(-180deg);
 }
-div.story-card > img{
-  max-width: 83%
-}
 .story-card .faces {
-  width: 83%;
-  height: 83%;
+  /*width: 83%;*/
+  /*height: 83%;*/
   -webkit-transform-style: preserve-3d;
   -webkit-transition: 2.5s;
 }
 .faces{
-  /*border: 30px solid #00ae58;
-  min-height:768px;*/
 }
 .story-card .faces .face {
-  width: 83%;
-  height: 83%;
   position: absolute;
   -webkit-backface-visibility: hidden ; /**/
   z-index: 2;
@@ -43,16 +36,6 @@ div.story-card > img{
 .story-card .faces .back {
   -webkit-transform: rotatey(-180deg);
 }
-/*.caption {
-  margin-top: 0px;
-  font-family: "omnes-pro";
-  font-weight:400;
-  font-size: 1.5em;
-  width:100%;
-  height:250px;
-  background-color: #00ae58;
-  color:#fff;
-}*/
 .call-animation-js {
   display: none;
   background: -webkit-radial-gradient(rgb(0,230,0), rgb(0,100,0));

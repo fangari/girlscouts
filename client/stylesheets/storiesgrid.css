@@ -229,3 +229,34 @@ background:#00ae58;
 .grid li.shown h3 {
   visibility: visible;
 }
+
+#grid_side_left{
+position:fixed;
+z-index: 4;
+float:left;
+left: 2%;
+top:80%;
+width:9em;
+height:2em;
+background-color: #00ae58;
+border-radius: 20px;
+color:#fff;
+text-align: center;
+padding-top:.325em;
+font-weight: 500;
+}
+#grid_side_right{
+position:fixed;
+z-index: 4;
+float: right;
+right: 2%;
+top:78.25%;
+width:9em;
+height:2em;
+background-color: #00ae58;
+border-radius: 20px;
+color:#fff;
+text-align: center;
+padding-top:.325em;
+font-weight: 500;
+}

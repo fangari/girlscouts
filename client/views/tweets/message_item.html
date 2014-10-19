@@ -1,18 +1,18 @@
 <template name="messageItem">
   <div class="message">
-    <div class="date">{{moments created_at}}</div>
-    <div class="summary">
+    <div class="date"><img src="https://d3tbjvpzzk3rum.cloudfront.net/stories/date_dot.png" class="date_dot">{{moments created_at}}</div>
+    <div class = 'summary'>
       {{text}}
     </div>
-    <p>
-      Submitted by {{name}} {{last_name}}, from <span
+    <p class="message_name">
+      Submitted by <span  class='submitted_name'>{{name}} {{last_name}}</span>, from <span
         class="origin">{{origin}}</span> station.
     </p>
+    </div>
     <div class="actions">
       {{#unless isAccepted}}
-        <button class='accept' type="button">&#10004;</button>
+        <button class='accept' type="button">&check;</button>
       {{/unless}}
-      <button class='reject' type="button">&cross;</button>
+      <button class='reject' type="button">X</button>
     </div>
-</div>
 </template>

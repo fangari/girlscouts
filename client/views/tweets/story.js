@@ -21,10 +21,13 @@ Template.story.rendered = function() {
 
   var callToActionAnimationId;
   var storiesQueue = new buckets.Queue();
+  var processingQueue = false;
+  Session.set('emptyQueue', true);
 
   Stories.find().observeChanges({
     changed: function(id, fields) {
       storiesQueue.add(id);
+      Session.set('emptyQueue', false);
     }
   });
 
@@ -35,17 +38,39 @@ Template.story.rendered = function() {
     card.children('.faces').toggleClass('flipped');
   };
 
-  var animateStory = function(window, time) {
+  var animateStory = function() {
+    var animating = true;
     var $card = $(".story-card");
-    $card.fadeIn(2000);
-    Meteor.setTimeout(function() {
+    //show the front face
+    $card.fadeIn(1000);
+    setTimeout(function() {
+      //show back face
       flipit($card);
     }, 3000);
-    Meteor.setTimeout(function() {
+    setTimeout(function() {
+      //show the front face again
       flipit($card);
-    }, 9000);
-    $card.delay(6000).fadeOut(2000);
+      animating = false;
+      return animating;
+    }, 7000);
+    //hide the story
+    $card.delay(6000).fadeOut(1000);
   };
+
+  function processQueue() {
+    var timeout;
+    if( !storiesQueue.isEmpty() ) {
+      processingQueue = true;
+      storyAnimation.set(storiesQueue.dequeue());
+      animateStory(processingQueue);
+    } else {
+      clearTimeout(timeout);
+      processingQueue = false;
+      Session.set("emptyQueue", true);
+      location.reload();
+    }
+    timeout = setTimeout(processQueue, 9500);
+  }
 
   var animateCallToAction = function(win, time) {
     var canvas,
@@ -58,8 +83,8 @@ Template.story.rendered = function() {
         dirtyRegions = [],
         minForce = 0,
         maxForce = 500,
-        colors = ['rgb(255, 255, 255)', 'rgb(255, 255, 0)',
-                  'rgb(0, 255, 0)'],
+        colors = ['rgb(255, 255, 255)', 'rgb(0, 173, 237)',
+                  'rgb(236, 0, 139)'],
         lastWord = time, FPS = 60;
 
     canvas = animationDiv.children('canvas')[0];
@@ -133,15 +158,15 @@ Template.story.rendered = function() {
        * Loop logic.
        */
       var pulse = function() {
-        var word = 'Girl Scouts: Then &amp; now.';
-        if(Date.now() - lastWord > 2875 &&
-           Date.now() - lastWord < 5750)
-          word = 'Double click the grid';
-        if(Date.now() - lastWord > 5750 &&
-           Date.now() - lastWord < 8625)
-          word = 'To see where Girl Scouts';
-        if(Date.now() - lastWord > 8625)
-          word = 'Took these ladies.';
+        var word = 'Our Story.';
+        if(Date.now() - time > 2875 &&
+           Date.now() - time < 5750)
+          word = 'Your Story';
+        if(Date.now() - time > 5750 &&
+           Date.now() - time < 8625)
+          word = 'Her Story';
+        if(Date.now() - time > 8625)
+          word = 'My Story.';
         box.innerHTML = '<p>' + word + '</p>';
         clear();
         update();
@@ -222,10 +247,11 @@ Template.story.rendered = function() {
           if(Date.now() - time > 1275 &&
              Date.now() - time < 2550) {
             particle.goalX = center.x + 180 * Math.pow(Math.sin(index), 3);
-          particle.goalY = center.y + 10 * ( - (15 * Math.cos(index) -
+          particle.goalY = center.y + 10 * ( - (10 * Math.cos(index) -
                                                 5 * Math.cos(2 * index) -
-                                                2 * Math.cos(3 * index) -
-                                                Math.cos(4 * index)));
+                                                4 * Math.cos(3 * index) -
+                                                Math.sin(4 * index) -
+                                                4 * Math.cos(5 * index)));
           }
 
           // Random
@@ -270,7 +296,7 @@ Template.story.rendered = function() {
              Date.now() - time < 8925) {
             maxForce = 500;
           var radius = 200;
-          particle.goalX = (center.x + radius * Math.cos(steps));
+          particle.goalX = (center.x + radius * Math.sin(steps));
           particle.goalY = (center.y + radius * Math.tan(steps));
           }
 
@@ -335,19 +361,19 @@ Template.story.rendered = function() {
       init();
   };
 
-  (function animate() {
+  Tracker.autorun(function() {
     var animationDiv = $('.call-animation-js');
-    if(!storiesQueue.isEmpty()) {
-      cancelAnimationFrame(callToActionAnimationId);
-      animationDiv.fadeOut(100);
-      storyAnimation.set(storiesQueue.dequeue());
-      animateStory();
+    if(Session.equals("emptyQueue", false)) {
+      if(!processingQueue) {
+        cancelAnimationFrame(callToActionAnimationId);
+        animationDiv.fadeOut(100);
+        processQueue();
+      }
     } else {
       cancelAnimationFrame(callToActionAnimationId);
       if(animationDiv.css('display') === 'none')
         animationDiv.fadeIn(100);
       animateCallToAction(window, Date.now());
     }
-    setTimeout(animate, 11500);
-  })();
+  });
 };

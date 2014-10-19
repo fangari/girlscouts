@@ -1,9 +1,30 @@
 <template name="grid">
+  <div class="wrapperHeader">
+    <div id="TN_header">
+      <img src="https://d3tbjvpzzk3rum.cloudfront.net/stories/ThenNow_header.png" alt="logo"/>
+    </div>
+
+    <div class="txt_cloud_action blue-banner">
+      Girl Scout Stories
+    </div>
+    <div class="txt_cloud_girls">
+      Then and Now
+    </div>
+  </div>
+  <div class="GSLogo">
+    <img src="https://d3tbjvpzzk3rum.cloudfront.net/stories/GS_ART_profiles_white.png" alt="logo"/>
+  </div>
+
+  <div class="Txt_Living">
+    Living a Girl Scout&rsquo;s Dream
+  </div>
+  <div class="Txt_Scroll text-center">
+    <strong>Scroll to browse.</strong> Double tap to select a Girl Scout and read her story
+  </div>
+ <div id="grid_side_left"> Scroll to Browse </div>
+ <h4 id="grid_side_right"> Tap to select </h4>
   <section class="grid-wrap">
     <ul id="grid" class="grid swipe-rotate">
-      <li class="title-box">
-        <h2>GIRL SCOUTS <a href='#'>Be Prepared</a></h2>
-      </li>
       {{#each stories}}
         {{> gridItem}}
       {{/each}}

@@ -1,5 +1,6 @@
+var fullform;
 Template.globeSubmit.events({
-  'submit form': function(event) {
+  'submit form': function(event, template) {
     event.preventDefault();
     var initials = $.parseHTML("&mdash;")[0].textContent +
       $(event.target).find('[name=name]').val() + ' ' +
@@ -20,11 +21,15 @@ Template.globeSubmit.events({
       $(event.target).find('[name=last_name]').val('');
       $(event.target).find('[name=message]').val('');
       $(event.target).find('.char-count-js').text('115');
+      fullform.reset();
     });
   }
 });
 
 Template.globeSubmit.rendered = function() {
+  fullform = new FForm(this.find('#fs-form-wrap'),
+                       {ctrlNavPosition: false});
+  fullform.render();
   var nameLength;
   var msgLength = 140 - 'I see a world  - I #GSC14'.length;
   var area = this.find('textarea');

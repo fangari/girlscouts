@@ -1,69 +1,75 @@
 .story-card {
   -webkit-perspective: 800;
-  width: 100%;
-  height: 300px;
   position: relative;
   margin: 3px;
   float:left;
   display: none;
 }
+
 .story-card .faces.flipped {
   -webkit-transform: rotatey(-180deg);
 }
+
 .story-card .faces {
-  width: 100%;
-  height: 100%;
   -webkit-transform-style: preserve-3d;
   -webkit-transition: 2.5s;
 }
+
 .story-card .faces .face {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  -webkit-backface-visibility: hidden ; /**/
+  -webkit-backface-visibility: hidden;
   z-index: 2;
-  font-family: Georgia;
+  font-family: "omnes-pro";
+  font-weight:400;
   font-size: 3em;
   text-align: center;
   line-height: 200px;
 }
+
 .story-card .faces .front {
   position: absolute;
   z-index: 1;
   cursor: pointer;
 }
+
 .story-card .faces .back {
   -webkit-transform: rotatey(-180deg);
 }
-.caption {
-  margin-top: 0px;
+
+.face > img {
+  margin-top: 4%;
+  width: 96%;
 }
+
 .call-animation-js {
   display: none;
   background: -webkit-radial-gradient(rgb(0,230,0), rgb(0,100,0));
   background: -moz-radial-gradient(rgb(0,230,0), rgb(0,100,0));
   background: radial-gradient(rgb(0,230,0), rgb(0,100,0));
 }
+
 #call-to-action-canvas {
-  position: 'absolute';
+  position: absolute;
+  width:100%;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: -1;
 }
+
 .text-box {
   background: rgba(0,0,0,0.1);
-  height: 70px;
+  height: 100px;
   position: absolute;
-  top: 45%;
+  top: 55%;
   left: 50%;
 }
+
 .text-box > p {
   color: #FFF;
   font-weight: bold;
-  font-family: 'comic-sans';
-  font-size: 2em;
+  font-family: 'omnes-pro';
+  font-size: 4em;
   text-align: center;
-  margin-top: 18px;
+  margin-top: 10px;
 }

@@ -1,0 +1,15 @@
+.text-box-globe {
+  background: rgba(0,0,0,1);
+  height:100em;
+  width:100%;
+  color: #fff;
+  font-size: 4em;
+  font-weight: bold;
+  line-height: 150%;
+  padding: 350px 0;
+  overflow: hidden;
+}
+
+.marquee{
+	font-size: 0.25em;
+}

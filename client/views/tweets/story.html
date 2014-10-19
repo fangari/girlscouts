@@ -1,15 +1,13 @@
 <template name="story">
   <div class="story-card">
     {{#with story}}
-      <div class="faces">
+      <div class="faces unflipped">
         <div class="face front">
           <img src="{{ thenPath }}" alt="{{ beforeCaption }}">
-          <h5 class="caption">Then: {{ beforeCaption }}</h5>
         </div>
 
         <div class="face back">
-          <img src="{{ nowPath }}" alt="{{ afterCaption }}">
-          <h5 class="caption">Now: {{ afterCaption }}</h5>
+          <img src="{{ nowPath }}" alt="{{ afterCaption }}" >
         </div>
       </div>
     {{/with}}

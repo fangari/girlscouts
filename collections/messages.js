@@ -35,7 +35,7 @@ Meteor.methods({
     twit.updateStatus(messageAttributes.text, function(data) {
       console.log(data.id_str);
       if (data.errors)
-        console.log(data.errors.message);
+        console.log("This error prevented tweeting:",data.errors.message);
     });
   },
 });

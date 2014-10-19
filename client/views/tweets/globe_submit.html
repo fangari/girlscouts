@@ -1,52 +1,74 @@
 <template name="globeSubmit">
-  <header>
-    <h1>GIRLtopia</h1>
-    <h2>Light up the globe with your dream of a better world for girls.</h2>
-    <p>
-      To make a better world, you have to imagine it first. Imagination is
-      powerful. It helps us understand people whose lives are different than our
-      own. And it allows us to dream up new ways to solve problems.
-    </p>
-    <p>
-      Check out the statistics projected onto the GIRLtopia globe. Did you know
-      that when you improve the lives of girls, it changes whole societies? It's
-      one way to make a better world for all.
-    </p>
-    <p>
-      So dream big and write your vision on the globe in light!
-    </p>
-  </header>
+  <div class="wrapperHeader">
+    <div id="globe_top"></div>
+    <div id="globe_logo">
+      <img src="https://d3tbjvpzzk3rum.cloudfront.net/stories/Girltopia_Logo.png" alt="logo"/>
+    </div>
 
-  <form class="main" action="">
-    <div class="control-group">
-      <div class="control-label" for="name">Name</div>
-      <div class="controls">
-        <input type="text" name="name" placeholder="What is your name?">
-      </div>
+    <div class="txt_cloud_action fs-globe">
+      Light up the globe with your
     </div>
-    <div class="control-group">
-      <div class="control-label" for="last_name">Last Name</div>
-      <div class="controls">
-        <input type="text" name="last_name" placeholder="What is your last name?">
-      </div>
+    <div class="txt_cloud_girls green-banner fs-globe">
+      dream for a better world for girls.
     </div>
-    <div class="control-group">
-      <div class="control-label" for="message">Message</div>
-      <div class="controls">
-        <textarea id="text" name="message" cols="50" rows="3" placeholder="I see a world..."></textarea>
-        <span class="char-count-js"></span>
-      </div>
-      <p>
-        Please don't include a Twitter handle or other identifying information.
-        All entries will be reviewed before they are projected onto the globe
-        and posted to Twitter. Search for #GSC14 and retweet to share your
-        vision!
-      </p>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <input type="submit" value="Submit">
-      </div>
-    </div>
-  </form>
+  </div>
+  <div class="GSLogo_small fs-globe">
+    <img src="https://d3tbjvpzzk3rum.cloudfront.net/stories/GS_ART_profiles_white.png" alt="logo"/>
+  </div>
+  <div id="fs-form-wrap" class="fs-form-wrap">
+    <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+      <ol class="fs-fields">
+        <li class="copy_big">
+          <div class="fs-anim-lower">
+            To make a better world, you have to imagine it first. Imagination is
+            powerful. It helps us understand people whose lives are different than our
+            own. And it allows us to dream up new ways to solve problems.
+          </div>
+        </li>
+        <li class="copy_big">
+          <div class="fs-anim-lower">
+            Check out the statistics projected onto the GIRLtopia globe. Did you know
+            that when you improve the lives of girls, it changes whole societies? It's
+            one way to make a better world for all.
+          </div>
+        </li>
+        <li>
+          <label class="fs-field-label fs-anim-upper" for="name">
+            What is your first name
+          </label>
+          <input id="q1" class="fs-anim-lower" type="text" name="name"
+          placeholder="First name" required/>
+        </li>
+        <li>
+          <label class="fs-field-label fs-anim-upper" for="last_name">
+            What is your last name
+          </label>
+          <input id="q2" class="fs-anim-lower" type="text" name="last_name"
+          placeholder="Last name" required/>
+        </li>
+        <li>
+          <label class="fs-field-label fs-anim-upper" for="message">
+            Message:
+          </label>
+          <span class="fs-field-label fs-anim-lower copy_big" id="gds_copy">I see a world&hellip;</span>
+          <textarea id="q3" class="fs-anim-lower" name="message" required></textarea>
+          <div class="clearfix char-helper">
+            <span class="fs-anim-lower char-count-js right"></span>
+          </div>
+          <div class="fs-anim-lower twitter_copy small">
+            Please don't include a Twitter handle or other identifying information.
+            All entries will be reviewed before they are projected onto the globe
+            and posted to Twitter. Search for #GSC14 and retweet to share your
+            vision!
+          </div>
+        </li>
+        <li>
+          <div class="fs-field-label fs-anim-upper copy">
+            <h4>Thank you for sharing your dream!</h4>
+          </div>
+        </li>
+      </ol>
+      <button class="fs-submit" type="submit">Send your wish</button>
+    </form>
+  </div>
 </template>

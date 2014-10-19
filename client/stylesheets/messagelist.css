@@ -1,0 +1,191 @@
+h2.u_list {
+  padding:1em;
+  font-weight: 400;
+  margin-left: 2em;
+}
+.message_section{
+position: relative;
+padding-bottom: 4em;
+border-left: thin solid #00ae58;
+left: 9%;
+width:90%;
+}
+
+.message {
+  width: 90%;
+  display: block;
+  position: relative;
+  font-family:'Roboto', sans-serif;
+  font-weight: 200;
+}
+
+.actions {
+  position:relative;
+  top:.1em;
+  float:right;
+  width:20%;
+  vertical-align:middle;
+  margin-right: 2em;
+}
+
+.accept {
+	font-size: 1.5em;
+	color:#fff;
+  position: relative;
+  cursor:pointer;
+  text-decoration:none;
+  background-color: #00ae58;
+  border: none;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+}
+
+.reject {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: 14px 12px;
+  border: 1px #d3d3d3;
+  background-color: red;
+  color: #fff;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.reject {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+}
+
+.date_dot {
+  position: relative;
+  left: -1.3em;
+  width: .75em;
+  margin-right: 1.5em;
+  margin-top:.3em;
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering:   -o-crisp-edges;         /* Opera */
+  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+}
+
+.date {
+  position:relative;
+  float:left;
+  font-weight: 400;
+  font-size:1em;
+  line-height: 200%;
+  width:100%;
+  margin:25px 0 10px 15px;
+  padding-top: 10px;
+}
+
+.summary {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  margin-left: 50px;
+  font-size: 1.15em;
+  font-weight:300;
+  line-height:125%;
+  color:rgb(51,51,51);
+  text-align:left;
+  width: 63%;
+  height:60px;
+  display:inline-block;
+  word-wrap: break-word;
+}
+
+.accept:hover {
+  color: #00ae58;
+  background-color: #fff;
+  border:1px #d3d3d3;
+}
+
+.reject:hover {
+  background-color: #fff;
+  color: red;
+}
+
+.submitted_name {
+  color:#00ae58;
+
+}
+
+p.message_name {
+  font-family: "omnes-pro";
+  font-size: 1.1em;
+  line-height: 136%;
+  width: 90%;
+  color: rgb(51,51,51);
+  text-align: left;
+  padding: 0 0 10px 5px;
+  background-color: transparent;
+  border-color: rgb(187,187,187);
+  border-width: 1.5px;
+  border-bottom: thin dotted;
+  position: absolute;
+  left: 50px;
+}
+
+.pledge_message {
+  width: 90%;
+  display: block;
+  position: relative;
+  margin: 50px auto;
+  font-family:"omnes-pro", sans-serif;
+  border-left: thin solid #00ae58;
+}
+
+.pledge_text {
+  position: relative;
+  margin: 20px 10px;
+  font-size: 1.5em;
+  font-weight:300;
+  line-height:125%;
+  color:#000;
+  text-align:left;
+  width:75%;
+  height:120px;
+  display:inline;
+  word-wrap: break-word;
+}
+
+#login-buttons{
+  margin-top: -15%;
+  float:right;
+  margin-right:1.2em;
+  height:35px;
+  width:120px;
+  border-radius: 40px;
+  border: 2px solid rgba(0,0,0,.4);
+  background: #232529;
+  padding: 0.1em 1.45em;
+  z-index: 1;
+  text-decoration: none;
+}
+#login-buttons a{
+text-align: center;
+vertical-align: middle;
+font-weight: 400;
+font-size: 1.5em;
+height:35px;
+width:130px;
+text-decoration: none;
+}
+
+#login-buttons:hover {
+    background: transparent;
+}
+
+#login-buttons a:hover{
+  font-weight: 500;
+}
+
+.feed{
+  margin-top: 20em;
+}

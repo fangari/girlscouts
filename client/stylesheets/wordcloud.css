@@ -1,0 +1,93 @@
+
+svg{
+
+   background-color:rgb(234,244,234);
+}
+.halfcircle{
+  position: relative;
+  top: -4.75em;
+  right: -8em;
+  height: 276.5px;
+  width: 553px;
+  float: right;
+  border: 10px solid#00AE5E;
+  background-color: #fff;
+  border-radius: 0 0 225px 225px;
+  -moz-border-radius: 0 0 225px 225px;
+  -webkit-border-radius: 0 0 276.5px 276.5px;
+}
+
+.halfcircle.child{
+  top: -6em;
+  right: -9em;
+}
+
+.txt_cloud_action{
+font-family: "omnes-pro", sans-serif;
+font-size: 3em;
+font-weight: 500;
+text-align: center;
+color: #fff;
+background: #00ADEF;
+padding: 5px 10px;
+left: 26%;
+position: absolute;
+top: 1.5em;
+transform: rotate(-3.5deg);
+-webkit-transform: rotate(-3.5deg);
+-moz-transform: rotate(-3.5deg);
+z-index: 2;
+}
+
+.txt_cloud_girls {
+font-family: "omnes-pro", sans-serif;
+font-size: 3em;
+font-weight: 500;
+text-align: center;
+color: white;
+background: #00AE59;
+padding: 5px 10px;
+left: 31.25%;
+position: absolute;
+top: 2.8em;
+transform: rotate(-2deg);
+-webkit-transform: rotate(-2deg);
+-moz-transform: rotate(-2deg);
+z-index: 1;
+}
+
+.txt_cloud_girls.child{
+  padding: 10px 20px;
+  left: 30%;
+  top: 80%;
+  transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+}
+
+.cld_hdr_txt{
+  text-align: center;
+  margin-left: 1.3em;
+  margin-top: 3em;
+  width: 12em;
+  font-size: 2em;
+  font-weight: 500;
+  color: #1D4499;
+  line-height: 115%;
+}
+
+.cld_hdr_txt.child {
+  margin-top: 4.5em;
+  font-size: 2.2em;
+  margin-left: 0.6em;
+}
+
+svg {
+  margin: 20%;
+}
+.blue-banner {
+  background: #1D4499;
+}
+
+.green-banner {
+  background: #00AE59;
+}

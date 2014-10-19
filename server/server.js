@@ -7,6 +7,7 @@ Meteor.startup(function() {
     access_token_key: conf.access_token.key,
     access_token_secret: conf.access_token.secret
   });
+
   if (Meteor.users.find().count() === 0) {
     var accountsFile = {};
     accountsFile = JSON.parse(Assets.getText('accounts.json'));

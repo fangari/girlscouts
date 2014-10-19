@@ -1,1 +1,157 @@
 #spinner { height: 300px; }
+
+#main p.lastNode {
+  margin-bottom: 0;
+}
+
+div.wrapperHeader {
+  width:100%;
+  height:140px; /* height of the background image? */
+  text-align:center;
+  position:fixed;
+  z-index: 999;
+  margin-bottom: 50px;
+  top:-.1em;
+}
+
+div#TN_header img{
+  position:absolute;
+  top:0px;
+  width:100%;
+  height:140px;
+  left:0px;
+}
+
+.GSLogo_small img {
+  position:fixed;
+  top: .15em;
+  width: 4em; /* the width of the logo image */
+  height: 4em;/*the height of the logo image*/
+  margin: 5px;
+  float:left;
+  vertical-align: middle;
+  left:1.5em;
+  z-index: 1000;
+}
+
+.GSLogo img {
+  position:fixed;
+  top:10px;
+  width: 90px; /* the width of the logo image */
+  height: 92px;/*the height of the logo image*/
+  margin:20px;
+  float:left;
+  vertical-align: middle;
+  left:20px;
+  z-index: 1000;
+}
+
+
+#Hdr_blu {
+  left: 28%;
+  position: absolute;
+  top: 50px;
+  margin-bottom: 0;
+  background-color: #1D4499;
+  width: 420px;
+  padding-top: 0px;
+  height: 124px;
+  transform: rotate(-5deg);
+}
+html > body #Hdr_blu {
+  height: auto;
+  min-height: 90px;
+}
+
+#Hdr_grn {
+  left: 35%;
+  position: absolute;
+  top: 105px;
+  margin-bottom: 0;
+  background-color: #00ae59;
+  width: 520px;
+  padding-top: 0px;
+  height: 110px;
+  transform: rotate(-3deg);
+  -webkit-transform: rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+}
+
+html > body #Hdr_grn {
+  height: auto;
+  min-height: 107px;
+}
+
+p#intro_text{
+  position: relative;
+  top:250px;
+  line-height:100%;
+  font-size: 2.5em;
+  color:rgb(51,51,51);
+  text-align:center;
+  margin: 100px auto;
+  width: 60%;
+}
+
+.origin{
+  color:#00ae58;
+}
+
+.sub_header{
+  position:relative;
+  margin-top:350px;
+
+}
+
+#pledge_Hdr_blu {
+  left: 40%;
+  position: absolute;
+  top: 128px;
+  margin-bottom: 0;
+  background-color: #1D4499;
+  width: 250px;
+  padding-top: 0px;
+  height: 75 px;
+  transform: rotate(2deg);
+  z-index: 10px;
+}
+html > body #pledge_Hdr_blu {
+  height: auto;
+  min-height: 90px;
+}
+
+#pledge_Hdr_grn {
+  left: 29%;
+  position: absolute;
+  top: 50px;
+  margin-bottom: 0;
+  background-color: #00ae59;
+  width: 600px;
+  padding-top: 0px;
+  height: 50px;
+  transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  -moz-transform:rotate(-5deg);
+}
+
+html > body #pledge_Hdr_grn {
+  height: auto;
+  min-height: 80px;
+}
+
+.Txt_Living {
+  margin-top: 20%;
+  font-size: 2.25em;
+  font-weight: 500;
+  line-height: 150%;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+  font-size: 1.75em;
+}
+
+.pledge-clear {
+  margin-top: 22%;
+}
